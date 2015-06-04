@@ -14,8 +14,9 @@ class AddUserTableFields extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
-			$table->boolean('admin');
-			$table->boolean('moderator');
+			$table->string('username');
+			$table->char('level', 1);
+			$table->boolean('banned');
 		});
 	}
 
@@ -28,8 +29,9 @@ class AddUserTableFields extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
-			$table->dropColumn('admin');
-			$table->dropColumn('moderator');
+			$table->dropColumn('username');
+			$table->dropColumn('level');
+			$table->dropColumn('banned');
 		});
 	}
 

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAlbumsImagesTable extends Migration {
+class CreateThreadsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,14 @@ class CreateAlbumsImagesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('albums_images', function(Blueprint $table)
+		Schema::create('threads', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('user_id');
+			$table->string('title');
+			$table->text('text');
+			$table->boolean('visible')->default(true);
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}
@@ -26,7 +31,7 @@ class CreateAlbumsImagesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('albums_images');
+		Schema::drop('threads');
 	}
 
 }

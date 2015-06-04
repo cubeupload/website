@@ -1,0 +1,56 @@
+albums
+ - id
+ - user_id
+ - name
+ - description
+ - tags
+ - soft delete
+ - create/update
+
+images
+ - id
+ - user_id
+ - name
+ - description
+ - hash
+ - tags
+ - soft delete
+ - create/update
+
+messages
+ - id
+ - thread_id
+ - user_id
+ - text
+ - soft delete
+ - create/update
+
+threads
+ - id
+ - user_id
+ - title
+ - visible
+ - soft delete
+ - create/update
+
+users
+ - id
+ - name
+ - username
+ - email
+ - password
+ - level // 1 = user, 2 = donator, 7 = moderator, 9 = admin.
+ - banned
+ - create/update
+
+ipaddresses
+ - id
+ - decimal
+ - countrycode
+
+comments
+ - id
+ - user_id
+ - text
+ - soft delete
+ - create/update

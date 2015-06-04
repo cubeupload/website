@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdminlogsTable extends Migration {
+class CreateIpAddressesUsersTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,11 @@ class CreateAdminlogsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('adminlogs', function(Blueprint $table)
+		Schema::create('ip_addresses_users', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('ip_address_id');
+			$table->integer('user_id');
 			$table->timestamps();
 		});
 	}
@@ -26,7 +28,7 @@ class CreateAdminlogsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('adminlogs');
+		Schema::drop('ip_addresses_users');
 	}
 
 }
