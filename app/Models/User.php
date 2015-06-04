@@ -6,6 +6,8 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
+use Hash;
+
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
 	use Authenticatable, CanResetPassword;
@@ -30,6 +32,21 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
+
+	public function ban()
+	{
+		return $this->banned = true;
+	}
+
+	public function unban()
+	{
+		return $this->banned = false;
+	}
+
+	public function setPasswordAttribute( $value )
+	{
+		$this->attributes['password'] = Hash::make( $value );
+	}
 
 	public function albums()
 	{
