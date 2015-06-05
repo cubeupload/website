@@ -4,6 +4,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model {
 
-	//public function 
+	protected $fillable = ['text'];
+	
+	public function album()
+	{
+		return $this->belongsTo('App\Models\Album');
+	}
+	
+	public function image()
+	{
+		return $this->belongsTo('App\Models\Image');
+	}
 
 }
