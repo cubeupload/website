@@ -11,4 +11,14 @@ class IpAddress extends Model {
 		return $this->belongsToMany('App\Models\User');
 	}
 
+	public function ban()
+	{
+		return $this->banned = true;
+	}
+
+	public function unban()
+	{
+		return $this->banned = false;
+	}
+
 }

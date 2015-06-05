@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIpAddressesTable extends Migration {
+class CreateBansTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,14 @@ class CreateIpAddressesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('ip_addresses', function(Blueprint $table)
+		Schema::create('bans', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('decimal', 16);
-			$table->string('country', 30);
-			$table->boolean('banned');
+			$table->integer('user_id');
+			$table->integer('ip_address_id');
+			$table->string('reason');
+			$table->string('notes');
+			$table->dateTime('expires_at');
 			$table->timestamps();
 		});
 	}
@@ -29,7 +31,7 @@ class CreateIpAddressesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('ip_addresses');
+		Schema::drop('bans');
 	}
 
 }
