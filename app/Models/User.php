@@ -33,14 +33,16 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
-	public function ban()
+	public function ban( $duration = null )
 	{
-		return $this->banned = true;
+		$ban = new Ban;
+		$ban->setDuration( $duration );
+		$ban->user()->save( $this );
 	}
-
+	
 	public function unban()
 	{
-		return $this->banned = false;
+		$this->bans()->current()->lift();
 	}
 
 	public function setPasswordAttribute( $value )
