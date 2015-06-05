@@ -31,7 +31,6 @@ class AddUserTableFields extends Migration {
 		{
 			$table->dropColumn('username');
 			$table->dropColumn('level');
-			$table->string('email')->unique()->change();
 		});
 	}
 
