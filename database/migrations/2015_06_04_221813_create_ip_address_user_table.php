@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIpAddressesUsersTable extends Migration {
+class CreateIpAddressUserTable extends Migration {
 
 	/**
 	 * Run the migrations.
