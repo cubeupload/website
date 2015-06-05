@@ -16,6 +16,7 @@ class AddUserTableFields extends Migration {
 		{
 			$table->string('username');
 			$table->char('level', 1);
+			$table->string('email')->unique()->nullable();
 		});
 	}
 
@@ -30,6 +31,7 @@ class AddUserTableFields extends Migration {
 		{
 			$table->dropColumn('username');
 			$table->dropColumn('level');
+			$table->string('email')->unique();
 		});
 	}
 
