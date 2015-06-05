@@ -12,7 +12,7 @@ class CreateIpAddressesUsersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('ip_addresses_users', function(Blueprint $table)
+		Schema::create('ip_address_user', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('ip_address_id');
@@ -28,7 +28,7 @@ class CreateIpAddressesUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('ip_addresses_users');
+		Schema::drop('ip_address_user');
 	}
 
 }
