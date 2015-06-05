@@ -6,7 +6,7 @@ class IpAddress extends Model {
 
 	public function user()
 	{
-		return $this->belongsToMany('App\Models\IpAddress');
+		return $this->belongsToMany('App\Models\User');
 	}
 
 }
