@@ -15,7 +15,7 @@ class AddUserTableFields extends Migration {
 		Schema::table('users', function(Blueprint $table)
 		{
 			$table->string('username')->after('name');
-			$table->char('level', 1)->default->(1)->after('username');
+			$table->char('level', 1)->default(1)->after('username');
 			$table->string('email')->nullable()->change();
 		});
 	}
