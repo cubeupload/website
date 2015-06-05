@@ -16,7 +16,6 @@ class AddUserTableFields extends Migration {
 		{
 			$table->string('username');
 			$table->char('level', 1);
-			$table->boolean('banned');
 		});
 	}
 
@@ -31,7 +30,6 @@ class AddUserTableFields extends Migration {
 		{
 			$table->dropColumn('username');
 			$table->dropColumn('level');
-			$table->dropColumn('banned');
 		});
 	}
 
