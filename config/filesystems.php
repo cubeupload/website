@@ -67,9 +67,9 @@ return [
 		],
 		'dreamobjects' => [
 				'driver'    => 's3',
-				'key'       => $_ENV['DO_KEY'],
-				'secret'    => $_ENV['DO_SECRET'],
-				'bucket'    => $_ENV['DO_BUCKET'],
+				'key'       => env('DO_KEY'),
+				'secret'    => env('DO_SECRET'),
+				'bucket'    => env('DO_BUCKET'),
 				'base_url'  => 'https://objects.dreamhost.com/auth',
 				'visibility'=> 'public'
 		],

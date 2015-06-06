@@ -17,7 +17,6 @@ class CreateIpAddressesTable extends Migration {
 			$table->increments('id');
 			$table->string('decimal', 16);
 			$table->string('country', 30);
-			$table->boolean('banned');
 			$table->timestamps();
 		});
 	}
