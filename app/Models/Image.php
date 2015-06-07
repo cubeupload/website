@@ -80,6 +80,6 @@ class Image extends Model {
 		if( $this->isGuestImage() )
 			return env('IMAGE_GUEST_URL').'/'.$this->name;
 		else
-			return env('IMAGE_USER_URL').'/'.$this->user()->username.'/'.$this->name;
+			return env('IMAGE_USER_URL').'/'.$this->user->username.'/'.$this->name;
 	}
 }

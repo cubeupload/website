@@ -10,4 +10,18 @@
 
 <input type="file" id="imageUpload" name="imageUpload">
 
-<script>$("#imageUpload").fileinput({uploadUrl: 'upload', ajaxSettings:{ headers:{'X-CSRF-Token': '{{ csrf_token() }}'}}});</script>
+<script>
+	$("#imageUpload").fileinput(
+	{
+		uploadUrl: 'upload', 
+		ajaxSettings:{ headers:{'X-CSRF-Token': '{{ csrf_token() }}'}},
+		uploadExtraData: {'test':'this is a test'}
+	});
+
+	$('#imageUpload').on('fileuploaded', function(event, data, previewId, index) {
+    var form = data.form, files = data.files, extra = data.extra,
+        response = data.response, reader = data.reader;
+
+	console.log( form, files, extra, response, reader );
+	});
+</script>

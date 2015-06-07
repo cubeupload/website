@@ -5,6 +5,7 @@
 	use File;
 	use CloudStorage;
 	use App\Models\Image;
+	use App\Services\ImageCheck;
 
 
 	trait HandlesUploadedFiles
@@ -17,20 +18,28 @@
 				
 				//$file->move( storage_path() . '/' . env('STAGING_FOLDER') );
 
+				//$checker = new ImageCheck;
+
 				$img = Image::fromUpload( $file );
 
 				if( !Auth::check() )
 					$img->generateName();
+				else
+				{
+					Auth::user()->images()->save($img);
+				}
 
 				$img->save();
 
-				CloudStorage::put($img->name, File::get($file->getPathname()), 'public');
+				if( !Auth::check() )
+					CloudStorage::put($img->name, File::get($file->getPathname()), 'public');
+				else
+					CloudStorage::put(Auth::user()->username . '/' . $img->name, File::get($file->getPathname()), 'public');
 
 				$json = [
-					//'error' => 'oh fux',
 					'initialPreview' => ['<img class="file-preview-image" src="'.$img->getPublicUrl().'"></img>'],
 					'initialPreviewConfig' => [
-						(object)['caption'=> $img->name, 'width' => '120px', 'url' => 'http://delete-url', 'key' => 'deleteKey']
+						(object)['caption'=> '<a href="'.$img->getPublicUrl().'" target="_blank">'.$img->name.'</a>', 'width' => '120px', 'url' => 'http://delete-url', 'key' => 'deleteKey']
 					]
 				];
 
