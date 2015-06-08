@@ -20,6 +20,7 @@ class CreateImagesTable extends Migration {
 			$table->string('name')->nullable();
 			$table->string('description')->nullable();
 			$table->string('originalName');
+			$table->string('deleteKey', 8);
 			$table->string('mimeType');
 			$table->integer('size');
 			$table->string('tags')->nullable();

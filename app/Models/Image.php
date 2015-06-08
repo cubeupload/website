@@ -1,12 +1,15 @@
 <?php namespace App\Models;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use File;
 
 class Image extends Model {
 
-	protected $fillable = ['originalName', 'mimeType', 'size'];
+	use SoftDeletes;
+
+	protected $fillable = ['originalName', 'mimeType', 'size', 'name', 'description'];
 
 	public function album()
 	{
@@ -63,6 +66,7 @@ class Image extends Model {
 		]);
 
 		$img->name = $img->originalName;
+		$img->generateDeleteKey();
 
 		return $img;
 	}
@@ -81,5 +85,10 @@ class Image extends Model {
 			return env('IMAGE_GUEST_URL').'/'.$this->name;
 		else
 			return env('IMAGE_USER_URL').'/'.$this->user->username.'/'.$this->name;
+	}
+
+	public function generateDeleteKey()
+	{
+		return $this->deleteKey = str_random(8);
 	}
 }

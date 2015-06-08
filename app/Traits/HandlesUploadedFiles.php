@@ -39,7 +39,12 @@
 				$json = [
 					'initialPreview' => ['<img class="file-preview-image" src="'.$img->getPublicUrl().'"></img>'],
 					'initialPreviewConfig' => [
-						(object)['caption'=> '<a href="'.$img->getPublicUrl().'" target="_blank">'.$img->name.'</a>', 'width' => '120px', 'url' => 'http://delete-url', 'key' => 'deleteKey']
+						(object)[
+							'caption'=> '<a href="'.$img->getPublicUrl().'" target="_blank">'.$img->name.'</a>', 
+							'width' => '120px', 
+							'url' => url('ajax/delete-image'), 
+							'key' => $img->deleteKey
+						]
 					]
 				];
 
