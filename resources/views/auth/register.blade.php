@@ -30,15 +30,12 @@
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">Username</label>
-							<div class="col-md-6" data-toggle="tooltip" data-placement="right" title="Your username is part of your image URLs">
-								<div class="input-group">
-									<div class="input-group-addon">{{ env('IMAGE_USER_URL') }}/</div>
-									<input type="text" class="form-control" name="username" value="{{ old('username') }}">
-									<div class="help-block with-errors"></div>
-								</div>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="username" value="{{ old('username') }}" aria-describedby="usernameHelpBlock">
+								<div class="help-block with-errors"></div>
+								<span id="usernameHelpBlock" class="help-block"></span>
 							</div>
 						</div>
-
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">E-Mail Address</label>

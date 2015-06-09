@@ -1,6 +1,6 @@
 <link href="{{ asset('css/fileinput.min.css') }}" media="all" rel="stylesheet" type="text/css" />
 
-<input type="file" id="imageUpload" name="imageUpload">
+<input type="file" id="imageUpload" name="imageUpload" multiple>
 
 
 @section('body_end')

@@ -25,6 +25,8 @@
 	<script>
 		cubeupload = {};
 		cubeupload.csrf_token = '{{ csrf_token() }}';
+		cubeupload.env = {};
+		cubeupload.env.image_user_url = '{{ env('IMAGE_USER_URL') }}';
 	</script>
 
 	<nav class="navbar navbar-default">

@@ -75,4 +75,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		return $this->belongsToMany('App\Models\IpAddress');
 	}
 
+	public function settings()
+	{
+		return $this->hasOne('App\Models\UserSetting');
+	}
+
 }
