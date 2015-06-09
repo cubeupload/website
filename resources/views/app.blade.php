@@ -4,7 +4,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Laravel</title>
+	<title>cubeupload</title>
+
+	@yield('head')
 
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 
@@ -19,6 +21,12 @@
 	<![endif]-->
 </head>
 <body>
+
+	<script>
+		cubeupload = {};
+		cubeupload.csrf_token = '{{ csrf_token() }}';
+	</script>
+
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -61,6 +69,11 @@
 
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+	@yield('body_end')
+
+	<script src="{{ asset('/js/validator.js') }}"></script>
+	<script src="{{ asset('/js/cubeupload.js?v=1') }}"></script>
 </body>
 </html>

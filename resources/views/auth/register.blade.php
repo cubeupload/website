@@ -18,28 +18,33 @@
 						</div>
 					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}">
+					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}" data-toggle="validator">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
 						<div class="form-group">
 							<label class="col-md-4 control-label">Name</label>
 							<div class="col-md-6">
-								<input type="text" class="form-control" name="name" value="{{ old('name') }}">
+								<input type="text" class="form-control" name="name" value="{{ old('name') }}" data-remote="{{ url('/ajax/validate/register') }}">
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">Username</label>
-							<div class="col-md-6">
-								<input type="text" class="form-control" name="username" value="{{ old('username') }}">
+							<div class="col-md-6" data-toggle="tooltip" data-placement="right" title="Your username is part of your image URLs">
+								<div class="input-group">
+									<div class="input-group-addon">{{ env('IMAGE_USER_URL') }}/</div>
+									<input type="text" class="form-control" name="username" value="{{ old('username') }}">
+									<div class="help-block with-errors"></div>
+								</div>
 							</div>
 						</div>
 
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
+							<div class="col-md-6" data-toggle="tooltip" data-placement="right" title="This helps you recover your account if you forget your password.">
 								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 
