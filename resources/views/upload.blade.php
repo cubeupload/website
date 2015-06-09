@@ -5,6 +5,5 @@
 	
 	@include('forms.upload')
 
-
 </div>
 @stop
