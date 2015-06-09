@@ -42,8 +42,9 @@
 						(object)[
 							'caption'=> '<a href="'.$img->getPublicUrl().'" target="_blank">'.$img->name.'</a>', 
 							'width' => '120px', 
-							'url' => url('ajax/delete-image'), 
-							'key' => $img->deleteKey
+							'url' => url('ajax/image/delete/'.$img->deleteKey), 
+							'key' => $img->deleteKey,
+							'extra' => ['_token' => csrf_token() ]
 						]
 					]
 				];
