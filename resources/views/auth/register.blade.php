@@ -23,7 +23,7 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">Name</label>
 							<div class="col-md-6">
-								<input type="text" class="form-control" name="name" value="{{ old('name') }}" data-remote="{{ url('/ajax/validate/register') }}">
+								<input type="text" class="form-control" name="name" value="{{ old('name') }}">
 								<div class="help-block with-errors"></div>
 							</div>
 						</div>
