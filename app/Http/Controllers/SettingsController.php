@@ -24,7 +24,7 @@ class SettingsController extends Controller
 	{
 		Auth::user()->settings->fill( $request->all() )->save();
 
-		return redirect('/settings');
+		return redirect('/settings')->with('success', true);
 	}
 
 }

@@ -6,6 +6,12 @@
 
 		<h1>My Settings <small><em>personalise your preferences</em></small></h1>
 
+		@if( Session::has('success') )
+		<div class="alert alert-success" role="alert">
+			<strong>Success!</strong> Your settings were saved.
+		</div>
+		@endif
+
 		<div class="row">
 
 			<form class="form-horizontal" role="form" method="POST" action="{{ url('/settings') }}">
