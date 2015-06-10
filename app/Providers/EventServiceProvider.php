@@ -3,6 +3,9 @@
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
+use App\Models\User;
+use App\Models\UserSetting;
+
 class EventServiceProvider extends ServiceProvider {
 
 	/**
@@ -26,7 +29,15 @@ class EventServiceProvider extends ServiceProvider {
 	{
 		parent::boot($events);
 
-		//
+		User::created( function($user)
+		{
+			if( !$user->settings )
+			{
+				$settings = new UserSetting;
+				$settings->save();
+				$user->settings()->save($settings);
+			}
+		});
 	}
 
 }
