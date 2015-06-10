@@ -17,5 +17,8 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 	'upload' => 'UploadController',
-	'images' => 'ImagesController'
+	'images' => 'ImagesController',
+	'settings' => 'SettingsController',
+	'ajax/validate' => 'Ajax\ValidateController',
+	'ajax/image' => 'Ajax\ImageController'
 ]);

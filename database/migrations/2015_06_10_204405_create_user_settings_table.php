@@ -16,7 +16,12 @@ class CreateUserSettingsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id');
-			$table->text('settings')->default('{}');
+			$table->enum('short_urls', ['none', 'isgd', 'bitly'] )->default('bitly');
+			$table->boolean('retain_filenames')->default(true);
+			$table->boolean('embed_html_full')->default(false);
+			$table->boolean('embed_html_thumb')->default(true);
+			$table->boolean('embed_bbcode_full')->default(false);
+			$table->boolean('embed_bbcode_thumb')->default(true);
 			$table->timestamps();
 		});
 	}

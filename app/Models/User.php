@@ -33,6 +33,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+	protected $casts = ['settings'];
+
 	public function ban( $duration = null )
 	{
 		$ban = new Ban;
@@ -73,6 +75,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	public function ipAddresses()
 	{
 		return $this->belongsToMany('App\Models\IpAddress');
+	}
+
+	public static function getDefaultSettings()
+	{
+		return config('users.default_settings');
 	}
 
 	public function settings()
