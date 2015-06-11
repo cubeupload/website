@@ -79,34 +79,36 @@
 						<p>Choose the codes which will appear on share popovers and modals.</p>
 						<div class="checkbox">
 							<label class="checkbox-inline">
+								<input type="hidden" name="embed_html_full" value="0">
 								<input type="checkbox" name="embed_html_full" id="embed_html_full" value="1">
 								HTML Full-size
 							</label>
 						</div>
 						<div class="checkbox">
 							<label class="checkbox-inline">
+								<input type="hidden" name="embed_html_thumb" value="0">
 								<input type="checkbox" name="embed_html_thumb" id="embed_html_thumb" value="1">
 								HTML Thumbnail
 							</label>
 						</div>
 						<div class="checkbox">
 							<label class="checkbox-inline">
+								<input type="hidden" name="embed_bbcode_full" value="0">
 								<input type="checkbox" name="embed_bbcode_full" id="embed_bbcode_full" value="1">
 								BBCode Full-size
 							</label>
 						</div>
 						<div class="checkbox">
 							<label class="checkbox-inline">
+								<input type="hidden" name="embed_bbcode_thumb" value="0">
 								<input type="checkbox" name="embed_bbcode_thumb" id="embed_bbcode_thumb" value="1">
 								BBCode Thumbnail
 							</label>
 						</div>
 					</div>
 				</div>
+				<button type="submit" class="btn btn-primary pull-right">Save</button>
 			</div>
-
-			<button type="submit" class="btn btn-primary pull-right">Save</button>
-
 			</form>
 		</div>
 
@@ -119,13 +121,6 @@
 			<script>
 				var settings = $.parseJSON('{!! $settings->toJson() !!}');
 				
-				/*settings.short_urls = 
-				settings.retain_filenames = {{ $settings->retain_filenames }};
-				settings.embed_html_full = {{ $settings->embed_html_full }};
-				settings.embed_html_thumb = {{ $settings->embed_html_thumb }};
-				settings.embed_bbcode_full = {{ $settings->embed_bbcode_full }};
-				settings.embed_bbcode_thumb = {{ $settings->embed_bbcode_thumb }};
-		*/
 				$('#short_urls_' + settings.short_urls).prop('checked', true );
 				
 				if( settings.retain_filenames )

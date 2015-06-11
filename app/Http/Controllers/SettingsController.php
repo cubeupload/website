@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 class SettingsController extends Controller 
 {
-
 	public function __construct()
 	{
 		$this->middleware('auth');
@@ -26,5 +25,4 @@ class SettingsController extends Controller
 
 		return redirect('/settings')->with('success', true);
 	}
-
 }
