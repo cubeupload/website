@@ -9,6 +9,7 @@
 	@yield('head')
 
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+	<link href="{{ asset('/css/cubeupload.css?v=1') }}" rel="stylesheet">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -69,6 +70,22 @@
 	</nav>
 
 	@yield('content')
+
+	<footer class="footer">
+		<div class="container">
+
+			<p class="text-muted">
+				<a href="/pages/about">About</a> - 
+				<a href="http://blog.cubeupload.com" target="_blank">Blog</a> - 
+				<a href="/pages/contact">Contact</a> - 
+				<a href="/pages/terms">Terms of Service</a> - 
+				<a href="http://twitter.com/cubeupload" target="_blank">Twitter</a>
+
+				<span class="pull-right">cubeupload.com v5 &copy; 2006-2015</span>
+			</p>
+		</div>
+
+	</footer>
 
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

@@ -6,15 +6,13 @@
 
 		<h1>My Settings <small><em>personalise your preferences</em></small></h1>
 
-		@if( Session::has('success') )
-		<div class="alert alert-success" role="alert">
+		<div class="alert alert-success hidden" role="alert" name="success_msg">
 			<strong>Success!</strong> Your settings were saved.
 		</div>
-		@endif
 
 		<div class="row">
 
-			<form class="form-horizontal" role="form" method="POST" action="{{ url('/settings') }}">
+			<form class="form-horizontal" role="form" method="POST" action="{{ url('/settings') }}" id="settings_form">
 				
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -119,6 +117,9 @@
 @section('body_end')
 
 			<script>
+
+				//$('[name="success_msg"]').hide();
+
 				var settings = $.parseJSON('{!! $settings->toJson() !!}');
 				
 				$('#short_urls_' + settings.short_urls).prop('checked', true );
@@ -139,6 +140,8 @@
 
 				if( settings.embed_bbcode_thumb )
 					$('#embed_bbcode_thumb').prop('checked', true );
+
+				$('')
 
 			</script>
 
