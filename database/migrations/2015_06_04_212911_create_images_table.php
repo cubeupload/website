@@ -19,6 +19,7 @@ class CreateImagesTable extends Migration {
 			$table->integer('album_id');
 			$table->string('name')->nullable();
 			$table->string('description')->nullable();
+			$table->string('hash', 32);
 			$table->string('originalName');
 			$table->string('deleteKey', 8);
 			$table->string('mimeType');
