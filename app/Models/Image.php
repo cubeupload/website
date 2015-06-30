@@ -9,7 +9,7 @@ class Image extends Model {
 
 	use SoftDeletes;
 
-	protected $fillable = ['originalName', 'mimeType', 'size', 'name', 'description'];
+	protected $fillable = ['originalName', 'mimeType', 'size', 'name', 'description', 'hash'];
 
 	public function album()
 	{
@@ -62,13 +62,23 @@ class Image extends Model {
 		$img->fill([
 			'originalName' => $file->getClientOriginalName(),
 			'size' => $file->getClientSize(),
-			'mimeType' => $file->getClientMimeType()
+			'mimeType' => $file->getClientMimeType(),
+			'hash' => hash_file( 'md5', $file->getPathname() )
 		]);
 
 		$img->name = $img->originalName;
 		$img->generateDeleteKey();
 
 		return $img;
+	}
+
+	public function getHashPath()
+	{
+		if( !empty( $this->hash ) )
+		{
+			$h = $this->hash;
+			return $h[0] . '/' . $h[1] . '/' . $h[2] . '/' . $h . '.dat';
+		}
 	}
 
 	public function isGuestImage()
