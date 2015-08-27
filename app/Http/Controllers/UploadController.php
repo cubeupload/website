@@ -2,11 +2,15 @@
 
 use App\Models\Image;
 use App\Models\User;
+use App\Models\Notice;
 
 use App\Traits\HandlesUploadedFiles;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
+use Auth;
+use Session;
 
 use Illuminate\Http\Request;
 

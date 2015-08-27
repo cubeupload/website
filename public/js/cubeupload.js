@@ -1,3 +1,11 @@
+$.ajaxSetup( 
+	{ 
+		headers: {
+			'X-CSRF-Token': cubeupload.csrf_token
+		}
+	}
+);
+
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
@@ -20,4 +28,5 @@ $('.cube-imgthumb').hover(
 	function()
 	{
 		$(this).find('.caption').addClass('hidden');
-	});
+	}
+);

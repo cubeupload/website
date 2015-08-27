@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'UploadController@getIndex');
+Route::get('/', 'HomeController@getIndex');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -19,6 +19,8 @@ Route::controllers([
 	'upload' => 'UploadController',
 	'images' => 'ImagesController',
 	'settings' => 'SettingsController',
+	'account' => 'AccountController',
 	'ajax/validate' => 'Ajax\ValidateController',
-	'ajax/image' => 'Ajax\ImageController'
+	'ajax/image' => 'Ajax\ImageController',
+	'ajax/util' => 'Ajax\UtilController'
 ]);

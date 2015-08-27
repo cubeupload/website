@@ -15,11 +15,14 @@ class CreateNoticesTable extends Migration {
 		Schema::create('notices', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('user_id');
+			$table->integer('user_id'); // author
 			$table->string('title');
 			$table->text('text');
-			$table->integer('metric');
-			$table->integer('visible');
+			$table->enum('show_to', ['users', 'guests', 'admins', 'all']);
+			$table->enum('type', ['success', 'info', 'warning', 'danger']);
+			$table->integer('dismissable');
+			$table->integer('metric'); // order
+			$table->integer('visible'); // WIP or shown
 			$table->timestamps();
 		});
 	}

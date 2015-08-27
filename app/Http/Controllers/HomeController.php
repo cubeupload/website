@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use App\Models\Notice;
+
 class HomeController extends Controller {
 
 	/*
@@ -28,9 +30,10 @@ class HomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function getIndex()
 	{
-		return view('home');
+		$notices = Notice::fetchForSession();
+		return view('home')->with('notices', $notices);
 	}
 
 }

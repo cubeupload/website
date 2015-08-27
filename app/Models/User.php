@@ -87,4 +87,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		return $this->hasOne('App\Models\UserSetting');
 	}
 
+	public function isAdmin()
+	{
+		if( $this->level == 9 )
+			return true;
+		else
+			return false;
+	}
+
 }

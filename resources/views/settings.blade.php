@@ -4,13 +4,15 @@
 
 	<div class="container">
 
-		<h1>My Settings <small><em>personalise your preferences</em></small></h1>
-
 		<div class="alert alert-success hidden" role="alert" name="success_msg">
 			<strong>Success!</strong> Your settings were saved.
 		</div>
 
 		<div class="row">
+
+			<div class="col-md-12">
+				<h1>My Settings <small><em>personalise your preferences</em></small></h1>
+			</div>
 
 			<form class="form-horizontal" role="form" method="POST" action="{{ url('/settings') }}" id="settings_form">
 				
