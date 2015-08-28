@@ -33,7 +33,7 @@ class HomeController extends Controller {
 	public function getIndex()
 	{
 		$notices = Notice::fetchForSession();
-		return view('home')->with('notices', $notices);
+		return view('frontend.home')->with('notices', $notices);
 	}
 
 }

@@ -5,6 +5,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 30px;
+  padding-top: 70px;
 }
 .footer {
   position: absolute;
@@ -17,4 +18,9 @@ body {
 
 .footer .container {
   margin: 5px 0;
+}
+
+.table thead tr td
+{
+  font-weight:bold;
 }

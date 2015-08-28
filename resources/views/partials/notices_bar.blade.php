@@ -14,14 +14,3 @@
 		@endforeach
 	</div>
 </div>
-
-@section('scripts')
-	@parent
-	<script>
-		$('.noticeClose').click( function() 
-		{
-			var noticeId = $(this).data('notice-id');
-			$.post( '{{ url('/ajax/util/close-notice') }}', { id: noticeId } );
-		});
-	</script>
-@stop

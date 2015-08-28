@@ -4,7 +4,7 @@
 
 @section('scripts')
 
-	@parent
 	<script src="{{ asset('js/fileinput.min.js') }}"></script>
+	<script src="{{ asset('js/cubeupload-fileinput.js') }}"></script>
 
 @stop

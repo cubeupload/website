@@ -24,3 +24,9 @@ Route::controllers([
 	'ajax/image' => 'Ajax\ImageController',
 	'ajax/util' => 'Ajax\UtilController'
 ]);
+
+Route::get('/', 'HomeController@getIndex');
+
+Route::controllers([
+	'admin/users' => 'Admin\UsersController'
+]);

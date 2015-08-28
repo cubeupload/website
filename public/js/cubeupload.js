@@ -30,3 +30,12 @@ $('.cube-imgthumb').hover(
 		$(this).find('.caption').addClass('hidden');
 	}
 );
+
+
+// Notices
+
+$('.noticeClose').click( function() 
+{
+	var noticeId = $(this).data('notice-id');
+	$.post( '/ajax/util/close-notice', { id: noticeId } );
+});
