@@ -70,26 +70,20 @@
 	@yield('content')
 
 	<footer class="footer">
-      <div class="container">
-        <div class="row">
-        	<div class="col-md-4 col-md-offset-4">
-        		<div class="col-md-2">
-        			<a href="{{ url('/about') }}">About</a>
-        		</div>
-        		<div class="col-md-2">
-        			<a href="{{ url('/contact') }}">Contact</a>
-        		</div>
-        		<div class="col-md-2">
-        			<a href="{{ url('/help') }}">Help</a>
-        		</div>
-        		<div class="col-md-2">
-        			<a href="{{ url('/terms') }}">Terms</a>
-        		</div>
-        		<div class="col-md-2">
-        			<a href="{{ url('https://twitter.com/cubeupload') }}">Twitter</a>
-        		</div>
-        	</div>
-        </div>
+		<div class="container">
+        		<div class="col-md-6 col-sm-6">
+        			<ul class="nav nav-pills">
+          				<li role="presentation"><a href="#">About</a></li>
+          				<li role="presentation"><a href="#">Contact</a></li>
+          				<li role="presentation"><a href="#">FAQ</a></li>
+          				<li role="presentation"><a href="#">Terms</a></li>
+          				<li role="presentation"><a href="#">Twitter</a></li>
+  				</ul>
+  			</div>
+  			<div class="col-md-6 col-sm-6">
+  				<span class="pull-right">Copyright CubeUpload 1234</span>
+  			</div>
+      		</div>
       </div>
     </footer>
 
