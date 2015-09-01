@@ -145,6 +145,8 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
+
 	],
 
 	/*
@@ -194,6 +196,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 
 		'CloudStorage' => 'App\Facades\CloudStorage',
+		'Breadcrumbs' => 'DaveJamesMiller\Breadcrumbs\Facade'
 
 	],
 

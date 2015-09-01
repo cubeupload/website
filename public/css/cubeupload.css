@@ -20,7 +20,7 @@ body {
   margin: 5px 0;
 }
 
-.table thead tr td
+.table thead tr td, .form-group .control-label, .panel-heading
 {
   font-weight:bold;
 }

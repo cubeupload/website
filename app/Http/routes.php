@@ -25,8 +25,9 @@ Route::controllers([
 	'ajax/util' => 'Ajax\UtilController'
 ]);
 
-Route::get('/', 'HomeController@getIndex');
+//Route::get('/admin', 'Admin\HomeController@getIndex');
 
 Route::controllers([
-	'admin/users' => 'Admin\UsersController'
+	//'/admin' => 'Admin\HomeController',
+	'/admin/users' => 'Admin\UsersController'
 ]);

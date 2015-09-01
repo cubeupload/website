@@ -44,13 +44,60 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
+
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Quick Links <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contact Posts <span class="badge">4</span><span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="{{ url('/account') }}">Latest Images</a></li>
-							<li><a href="{{ url('/settings') }}">Contact Posts</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
+							<li><a href="{{ url('/admin/messages/category/abuse') }}">Abuse</a></li>
+							<li><a href="{{ url('/admin/messages/category/contact') }}">General Contact</a></li>
+							<li><a href="{{ url('/admin/messages/category/suggestions') }}">Suggestions</a></li>
+
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Images <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="{{ url('/admin/images/list') }}">List</a></li>
+							<li><a href="{{ url('/admin/images/recent') }}">Recent</a></li>
+							<li><a href="{{ url('/admin/images/search') }}">Search</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Users <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="{{ url('/admin/users/list') }}">List</a></li>
+							<li><a href="{{ url('/admin/users/recent') }}">Recent</a></li>
+							<li><a href="{{ url('/admin/users/search') }}">Search</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Notices <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="{{ url('/admin/notices/add') }}">Add</a></li>
+							<li><a href="{{ url('/admin/notices/list') }}">List</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reports <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="{{ url('/admin/reports/add') }}">Add</a></li>
+							<li><a href="{{ url('/admin/reports/list') }}">List</a></li>
+							<li><a href="{{ url('/admin/reports/scheduled') }}">Scheduled</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Subscriptions <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="{{ url('/account') }}">Add</a></li>
+							<li><a href="{{ url('/account') }}">List</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tools <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="{{ url('/auth/logout') }}">List</a></li>
+							<li><a href="{{ url('/account') }}">Recent</a></li>
+							<li><a href="{{ url('/settings') }}">Search</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -61,46 +108,9 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<ol class="breadcrumb">
-					<li>
-						<a href="#">Users</a>
-					</li>
-					<li>
-						<a href="#">UberMensch</a>
-					</li>
-					<li class="active">
-						Details
-					</li>
-				</ol>
+				@yield('breadcrumbs')
 			</div>
-			<div class="col-md-2">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<ul class="nav nav-pills nav-stacked">
-							<li role="presentation">
-								<a href="#">Dashboard</a>
-							</li>
-							<li role="presentation" class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-									Users <span class="caret"></span>
-								</a>
-								<ul class="dropdown-menu">
-									<li role="presentation">
-										<a href="/admin/users/latest">Latest</a>
-									</li>
-									<li role="presentation">
-										<a href="/admin/users/search">Search</a>
-									</li>
-									<li role="presentation">
-										<a href="/admin/users/bans">Bans</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-10">
+			<div class="col-md-12">
 				@yield('content')
 			</div>
 		</div>
@@ -119,9 +129,12 @@
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
 
 	<script src="{{ asset('/js/validator.js') }}"></script>
 	<script src="{{ asset('/js/cubeupload.js?v=1') }}"></script>
+	<script src="{{ asset('/admin/js/cubeupload-admin.js') }}"></script>
+	<script src="{{ asset('/admin/js/cubeupload-viewmodels.js') }}"></script>
 	
 	@yield('scripts')
 
