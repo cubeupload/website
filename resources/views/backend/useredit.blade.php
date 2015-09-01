@@ -9,8 +9,10 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							User Details
-							<a href="{{ url('/admin/users/show/' . $user->id) }}" class="btn btn-default btn-xs pull-right">Cancel</a>
-							<button type="submit" class="btn btn-primary btn-xs pull-right">Save</button>
+							<div class="btn-group btn-group-xs pull-right">
+								<button type="submit" class="btn btn-primary">Save</button>
+								<a href="{{ url('/admin/users/show/' . $user->id) }}" class="btn btn-default">Cancel</a>
+							</div>
 						</div>
 						<div class="panel-body">
 							<div class="form-group">
