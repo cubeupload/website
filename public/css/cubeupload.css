@@ -25,8 +25,7 @@ body {
   font-weight:bold;
 }
 
-.footer > .nav-pills > li > a
+.footer .nav-pills > li > a
 {
     padding: 0 10px;
-}
 }
