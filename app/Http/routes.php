@@ -14,20 +14,20 @@
 Route::get('/', 'HomeController@getIndex');
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-	'upload' => 'UploadController',
-	'images' => 'ImagesController',
-	'settings' => 'SettingsController',
-	'account' => 'AccountController',
-	'ajax/validate' => 'Ajax\ValidateController',
-	'ajax/image' => 'Ajax\ImageController',
-	'ajax/util' => 'Ajax\UtilController'
+	'/auth' => 'Auth\AuthController',
+	'/password' => 'Auth\PasswordController',
+	'/upload' => 'UploadController',
+	'/images' => 'ImagesController',
+	'/settings' => 'SettingsController',
+	'/account' => 'AccountController',
+	'/ajax/validate' => 'Ajax\ValidateController',
+	'/ajax/image' => 'Ajax\ImageController',
+	'/ajax/util' => 'Ajax\UtilController'
 ]);
 
-//Route::get('/admin', 'Admin\HomeController@getIndex');
+Route::get('/admin/dashboard', 'Admin\HomeController@getIndex');
 
 Route::controllers([
-	//'/admin' => 'Admin\HomeController',
-	'/admin/users' => 'Admin\UsersController'
+	'/admin/users' => 'Admin\UsersController',
+	'/admin/messages' => 'Admin\MessagesController'
 ]);

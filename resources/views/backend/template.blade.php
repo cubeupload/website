@@ -46,15 +46,6 @@
 				<ul class="nav navbar-nav navbar-right">
 
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contact Posts <span class="badge">4</span><span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="{{ url('/admin/messages/category/abuse') }}">Abuse</a></li>
-							<li><a href="{{ url('/admin/messages/category/contact') }}">General Contact</a></li>
-							<li><a href="{{ url('/admin/messages/category/suggestions') }}">Suggestions</a></li>
-
-						</ul>
-					</li>
-					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Images <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="{{ url('/admin/images/list') }}">List</a></li>
@@ -63,11 +54,20 @@
 						</ul>
 					</li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Users <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Messages 
+							@if( isset( $messages_unread ) )
+							<span class="badge" data-type="unreadMessagesBadge">{{ $messages_unread }}</span>
+							@endif
+							<span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="{{ url('/admin/users/list') }}">List</a></li>
-							<li><a href="{{ url('/admin/users/recent') }}">Recent</a></li>
-							<li><a href="{{ url('/admin/users/search') }}">Search</a></li>
+							<li><a href="{{ url('/admin/messages') }}">List</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="{{ url('/admin/messages/category/abuse') }}">Abuse</a></li>
+							<li><a href="{{ url('/admin/messages/category/contact') }}">General Contact</a></li>
+							<li><a href="{{ url('/admin/messages/category/suggestion') }}">Suggestions</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="{{ url('/admin/messages/hidden') }}">Hidden Archive</a></li>
+
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -90,6 +90,14 @@
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="{{ url('/account') }}">Add</a></li>
 							<li><a href="{{ url('/account') }}">List</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Users <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="{{ url('/admin/users/list') }}">List</a></li>
+							<li><a href="{{ url('/admin/users/recent') }}">Recent</a></li>
+							<li><a href="{{ url('/admin/users/search') }}">Search</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">

@@ -145,6 +145,8 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+		'App\Providers\AdminServiceProvider',
+
 		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
 
 	],

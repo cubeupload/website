@@ -28,3 +28,21 @@
 		$breadcrumbs->parent('/admin/users/show', $user);
 		$breadcrumbs->push('Edit', '/admin/users/images/' . $user->id);
 	});
+
+	Breadcrumbs::register('/admin/messages', function( $breadcrumbs )
+	{
+		$breadcrumbs->parent('/admin');
+		$breadcrumbs->push('Messages', '/admin/messages');
+	});
+
+	Breadcrumbs::register('/admin/messages/category', function( $breadcrumbs, $category )
+	{
+		$breadcrumbs->parent('/admin/messages');
+		$breadcrumbs->push( ucfirst( $category ), '/admin/messages/category/' . $category);
+	});
+
+	Breadcrumbs::register('/admin/messages/hidden', function( $breadcrumbs )
+	{
+		$breadcrumbs->parent('/admin/messages');
+		$breadcrumbs->push( 'Hidden', '/admin/messages/hidden');
+	});
