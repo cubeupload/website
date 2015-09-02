@@ -14,19 +14,19 @@ class MessagesController extends Controller
 
 	public function getIndex()
 	{
-		$messages = Message::whereHidden(false)->orderBy('created_at', 'desc')->get();
+		$messages = Message::whereHidden(false)->orderBy('created_at', 'desc')->paginate(10);
 		return view('backend.messageslist')->with('messages', $messages);
 	}
 
 	public function getCategory( $category )
 	{
-		$messages = Message::whereCategory($category)->whereHidden(false)->orderBy('created_at', 'desc')->get();
+		$messages = Message::whereCategory($category)->whereHidden(false)->orderBy('created_at', 'desc')->paginate(10);
 		return view('backend.messageslist')->with( ['messages' => $messages, 'category' => $category] );
 	}
 
 	public function getHidden()
 	{
-		$messages = Message::whereHidden(true)->orderBy('created_at', 'desc')->get();
+		$messages = Message::whereHidden(true)->orderBy('created_at', 'desc')->paginate(10);
 
 		if( $messages != null )
 		{

@@ -66,7 +66,7 @@
 							<li><a href="{{ url('/admin/messages/category/contact') }}">General Contact</a></li>
 							<li><a href="{{ url('/admin/messages/category/suggestion') }}">Suggestions</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="{{ url('/admin/messages/hidden') }}">Hidden Archive</a></li>
+							<li><a href="{{ url('/admin/messages/hidden') }}">Archive</a></li>
 
 						</ul>
 					</li>
@@ -95,7 +95,7 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Users <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="{{ url('/admin/users/list') }}">List</a></li>
+							<li><a href="{{ url('/admin/users') }}">List</a></li>
 							<li><a href="{{ url('/admin/users/recent') }}">Recent</a></li>
 							<li><a href="{{ url('/admin/users/search') }}">Search</a></li>
 						</ul>

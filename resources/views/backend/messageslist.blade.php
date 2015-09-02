@@ -10,7 +10,11 @@
 
 @section('content')
 	@if( count( $messages ) == 0 )
-	<h4>No messages to show!</h4>
+	@if( isset( $category ) )
+	<h4>There are no messages to show in the {{ $category }} category.</h4>
+	@else
+	<h4>There are no messages to show.</h4>
+	@endif
 	@endif
 
 	@foreach( $messages as $message )
@@ -39,4 +43,6 @@
 			</div>
 		</div>
 	@endforeach
+
+	{!! $messages->render() !!}
 @stop		

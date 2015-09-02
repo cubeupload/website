@@ -44,5 +44,5 @@
 	Breadcrumbs::register('/admin/messages/hidden', function( $breadcrumbs )
 	{
 		$breadcrumbs->parent('/admin/messages');
-		$breadcrumbs->push( 'Hidden', '/admin/messages/hidden');
+		$breadcrumbs->push( 'Archive', '/admin/messages/hidden');
 	});

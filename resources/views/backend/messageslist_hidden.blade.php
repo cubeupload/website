@@ -6,7 +6,12 @@
 
 @section('content')
 	@if( count( $messages ) == 0 )
-	<h4>No messages to show!</h4>
+	<h4>There are no messages in the archive.</h4>
+	@else
+	<div class="alert alert-danger">
+		<strong>Heads up!</strong> <br />
+		Once deleted, a message can no longer be viewed in the admin panel. Messages are retained in the database however and can be restored (see Tom).
+	</div>
 	@endif
 
 	@foreach( $messages as $message )
@@ -25,4 +30,6 @@
 			</div>
 		</div>
 	@endforeach
+
+	{!! $messages->render() !!}
 @stop		
