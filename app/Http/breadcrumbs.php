@@ -10,7 +10,7 @@
 
 	Breadcrumbs::register('/admin/users', function( $breadcrumbs )
 	{
-		$breadcrumbs->parent('/admin');
+		//$breadcrumbs->parent('/admin');
 		$breadcrumbs->push('Users', '/admin/users');
 	});
 
@@ -39,7 +39,7 @@
 
 	Breadcrumbs::register('/admin/messages', function( $breadcrumbs )
 	{
-		$breadcrumbs->parent('/admin');
+		//$breadcrumbs->parent('/admin');
 		$breadcrumbs->push('Messages', '/admin/messages');
 	});
 
@@ -67,4 +67,4 @@
 	// Start - Notices Breadcrumbs
 
 
-	// End - Notices Breadcrumbs
+	// End - Notices Breadcrumbsx

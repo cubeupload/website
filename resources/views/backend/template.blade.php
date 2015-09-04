@@ -39,7 +39,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/">cubeadmin</a>
+				<a class="navbar-brand" href="{{ url('/admin') }}">cubeadmin</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -62,9 +62,10 @@
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="{{ url('/admin/messages') }}">List</a></li>
 							<li role="separator" class="divider"></li>
+							<li class="dropdown-header">Category</li>
 							<li><a href="{{ url('/admin/messages/category/abuse') }}">Abuse</a></li>
-							<li><a href="{{ url('/admin/messages/category/contact') }}">General Contact</a></li>
-							<li><a href="{{ url('/admin/messages/category/suggestion') }}">Suggestions</a></li>
+							<li><a href="{{ url('/admin/messages/category/contact') }}">Contact</a></li>
+							<li><a href="{{ url('/admin/messages/category/suggestion') }}">Suggestion</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a href="{{ url('/admin/messages/hidden') }}">Archive</a></li>
 

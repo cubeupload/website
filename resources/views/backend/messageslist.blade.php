@@ -32,9 +32,9 @@
 					@endif
 					<div class="btn-group btn-group-xs pull-right">
 						@if( !$message->read )
-						<button type="button" class="btn btn-default" data-target="markMessageRead" data-messageid="{{ $message->id }}">Mark As Read</button>
+						<button type="button" class="btn btn-default" data-action="markMessageRead" data-messageid="{{ $message->id }}">Mark As Read</button>
 						@endif
-						<button type="button" class="btn btn-default" data-target="hideMessage" data-messageid="{{ $message->id }}">Hide</button>
+						<button type="button" class="btn btn-default" data-action="hideMessage" data-messageid="{{ $message->id }}">Hide</button>
 					</div>
 				</div>
 				<div class="panel-body">

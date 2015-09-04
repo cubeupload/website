@@ -20,8 +20,8 @@
 				<div class="panel-heading">
 					From {{ $message->email or 'Unknown' }} <span class="label label-default">Hidden</span>
 					<div class="btn-group btn-group-xs pull-right">
-						<button type="button" class="btn btn-default" data-target="unHideMessage" data-messageid="{{ $message->id }}">Unhide</button>
-						<button type="button" class="btn btn-danger" data-target="deleteMessage" data-messageid="{{ $message->id }}">Delete</button>
+						<button type="button" class="btn btn-default" data-action="unHideMessage" data-messageid="{{ $message->id }}">Unhide</button>
+						<button type="button" class="btn btn-danger" data-action="deleteMessage" data-messageid="{{ $message->id }}">Delete</button>
 					</div>
 				</div>
 				<div class="panel-body">
