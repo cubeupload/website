@@ -9,26 +9,41 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							User Details
+							@if( ($user->isSuperUser() && (Auth::user()->id == $user->id)) || !$user->isSuperUser() )
 							<a href="{{ url('/admin/users/edit/' . $user->id )}}" class="btn btn-default btn-xs pull-right">Edit</a>
+							@endif
 						</div>
 						<div class="panel-body">
+							@if( $user->isSuperUser() )
+							<div class="label label-info pull-right">Super User</div>
+							@endif
 							<div class="form-horizontal">
 								<div class="form-group">
 									<label for="id" class="col-md-3 control-label">User ID</label>
-									<div class="col-md-9">
+									<div class="col-md-4">
 										<p class="form-control-static">{{ $user->id or ''}}</p>
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="name" class="col-md-3 control-label">Name</label>
-									<div class="col-md-9">
-										<p class="form-control-static">{{ $user->name or ''}}</p>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="username" class="col-md-3 control-label">Username</label>
 									<div class="col-md-9">
 										<p class="form-control-static">{{ $user->username or '' }}</p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="level" class="col-md-3 control-label">Access Level</label>
+									<div class="col-md-9">
+										@if( Auth::user()->level <= $user->level )
+										<p class="form-control-static">Hidden</p>
+										@else
+										<p class="form-control-static">{{ $user->level or ''}}</p>
+										@endif
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="name" class="col-md-3 control-label">Name</label>
+									<div class="col-md-9">
+										<p class="form-control-static">{{ $user->name or ''}}</p>
 									</div>
 								</div>
 								<div class="form-group">
@@ -68,5 +83,6 @@
 							</div>
 							@endforeach
 						</div>
+					</div>
 				</div>
 @stop

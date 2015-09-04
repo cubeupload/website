@@ -26,7 +26,7 @@ class UploadController extends Controller
 
 	public function getIndex()
 	{
-		return view( 'upload' );
+		return view( 'frontend.upload' );
 	}
 
 }

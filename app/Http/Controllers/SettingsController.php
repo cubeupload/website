@@ -16,7 +16,7 @@ class SettingsController extends Controller
 
 	public function getIndex()
 	{
-		return view('settings')->with(['settings' => Auth::user()->settings]);
+		return view('frontend.settings')->with(['settings' => Auth::user()->settings]);
 	}
 
 	public function postIndex(Request $request)

@@ -1,4 +1,4 @@
-@extends('app')
+@extends('frontend.template')
 
 @section('content')
 
@@ -27,7 +27,7 @@
 						<p>Choose a shortening service for your share links. Great for Twitter.</p>
 						<div class="radio">
 							<label>
-								<input type="radio" name="short_urls" id="short_urls_none" value="none" @if( $settings['short_urls'] == 'none' ) checked @endif>
+								<input type="radio" name="short_urls" id="short_urls_none" value="none" @if( $user->settings->short_urls == 'none' ) checked @endif>
 								No Short URLs
 							</label>
 						</div>

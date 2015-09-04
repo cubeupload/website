@@ -84,9 +84,14 @@ class UsersController extends Controller
 			return view('backend.useredit')->with('user', $user);
 	}
 
-	public function postEdit($id)
+	public function postEditDetails($id)
 	{
+		return Input::all();
+	}
 
+	public function postEditSettings($id)
+	{
+		return Input::all();
 	}
 
 }

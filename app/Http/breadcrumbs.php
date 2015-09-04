@@ -5,6 +5,9 @@
 		$breadcrumbs->push('Dashboard', '/admin');
 	});
 
+
+	// Start - Users Breadcrumbs
+
 	Breadcrumbs::register('/admin/users', function( $breadcrumbs )
 	{
 		$breadcrumbs->parent('/admin');
@@ -29,6 +32,11 @@
 		$breadcrumbs->push('Edit', '/admin/users/images/' . $user->id);
 	});
 
+	// End - Users Breadcrumbs
+
+
+	// Start - Messages Breadcrumbs
+
 	Breadcrumbs::register('/admin/messages', function( $breadcrumbs )
 	{
 		$breadcrumbs->parent('/admin');
@@ -46,3 +54,17 @@
 		$breadcrumbs->parent('/admin/messages');
 		$breadcrumbs->push( 'Archive', '/admin/messages/hidden');
 	});
+
+	// End - Messages Breadcrumbs
+
+
+	// Start - Images Breadcrumbs
+
+
+	// End - Images Breadcrumbs
+
+
+	// Start - Notices Breadcrumbs
+
+
+	// End - Notices Breadcrumbs

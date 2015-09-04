@@ -16,7 +16,7 @@ class ImagesController extends Controller {
 
 	public function getIndex()
 	{
-		return view('images')->with(['images' => Auth::user()->images()->get()]);
+		return view('frontend.images')->with(['images' => Auth::user()->images()->get()]);
 	}
 
 }

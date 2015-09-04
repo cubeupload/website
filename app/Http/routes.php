@@ -25,9 +25,13 @@ Route::controllers([
 	'/ajax/util' => 'Ajax\UtilController'
 ]);
 
-Route::get('/admin/dashboard', 'Admin\HomeController@getIndex');
+Route::group(['middleware' => ['auth', 'admincheck']], function()
+{
+	Route::get('/admin', 'Admin\HomeController@getIndex');
 
-Route::controllers([
-	'/admin/users' => 'Admin\UsersController',
-	'/admin/messages' => 'Admin\MessagesController'
-]);
+	Route::controllers([
+		'/admin/users' => 'Admin\UsersController',
+		'/admin/messages' => 'Admin\MessagesController',
+		'/admin/notices' => 'Admin\NoticesController'
+	]);
+});

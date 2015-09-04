@@ -55,6 +55,10 @@
 								<li><a href="{{ url('/account') }}">Account</a></li>
 								<li><a href="{{ url('/settings') }}">Settings</a></li>
 								<li role="separator" class="divider"></li>
+		          				@if( Auth::check() && Auth::user()->isModerator() )
+		          				<li><a href="{{ url('/admin') }}">CubeAdmin</a></li>
+								<li role="separator" class="divider"></li>
+		          				@endif
 								<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
 							</ul>
 						</li>

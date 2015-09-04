@@ -14,6 +14,9 @@
 				</div>
 				<div class="panel-body">
 					<div class="col-md-12">
+						@if( count( $users ) == 0 )
+						<h4>We have no users, how weird...</h4>
+						@else
 						<table class="table">
 							<thead>
 								<tr>
@@ -36,13 +39,16 @@
 									<td>
 										<div class="btn-group btn-group-xs" role="group" aria-label="usercontrols">
 											<a role="button" class="btn btn-default" href="{{ url('/admin/users/show/' . $user->id) }}">View</a>
+											@if( ($user->isSuperUser() && (Auth::user()->id == $user->id)) || !$user->isSuperUser() )
 											<a role="button" class="btn btn-default" href="{{ url('/admin/users/edit/' . $user->id) }}">Edit</a>
+											@endif
 										</div>
 									</td>
 								</tr>
 								@endforeach
 							</tbody>
 						</table>
+						@endif
 					</div>
 				</div>
 				<div class="panel-footer">

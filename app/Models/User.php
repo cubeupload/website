@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 use Hash;
+use Config;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
@@ -89,7 +90,24 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	public function isAdmin()
 	{
-		if( $this->level == 9 )
+		if( $this->level >= 9 )
+			return true;
+		else
+			return false;
+	}
+
+	public function isModerator()
+	{
+		if( $this->level >= 5 )
+			return true;
+		else
+			return false;
+	}
+
+	public function isSuperUser()
+	{
+		$user_ids = Config::get('users.super_users');
+		if( in_array( $this->id, $user_ids ) )
 			return true;
 		else
 			return false;

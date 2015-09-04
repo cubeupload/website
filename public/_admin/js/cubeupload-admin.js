@@ -24,7 +24,7 @@ $('#userSave').click( function(){
 	});
 });
 
-$('[data-target="hideMessage"]').click( function(){
+$('[data-action="hideMessage"]').click( function(){
 	var $btn = $(this);
 	var $panel = $btn.parent().parent().parent();
 	var msgId = $btn.data('messageid');
@@ -36,7 +36,7 @@ $('[data-target="hideMessage"]').click( function(){
 	});
 });
 
-$('[data-target="unHideMessage"]').click( function()
+$('[data-action="unHideMessage"]').click( function()
 {
 	var $btn = $(this);
 	var $panel = $btn.parent().parent().parent();
@@ -48,7 +48,7 @@ $('[data-target="unHideMessage"]').click( function()
 	});
 });
 
-$('[data-target="markMessageRead"]').click( function()
+$('[data-action="markMessageRead"]').click( function()
 {
 	var $btn = $(this);
 	var $newLabel = $btn.parent().parent().find('[data-type="newLabel"]');
@@ -64,7 +64,7 @@ $('[data-target="markMessageRead"]').click( function()
 	});
 });
 
-$('[data-target="deleteMessage"]').click( function()
+$('[data-action="deleteMessage"]').click( function()
 {
 	var $btn = $(this);
 	var $panel = $btn.parent().parent().parent();
@@ -74,6 +74,45 @@ $('[data-target="deleteMessage"]').click( function()
 	{
 		$panel.fadeOut();
 	});
+});
+
+$('[data-action="saveDetails"]').click( function()
+{
+	var $form = $('#userDetailsForm');
+	var id = $form.data('userid');
+	var $btn = $(this);
+
+	$btn.attr('disabled', 'disabled');
+	$form.prepend('<div id="savingLabel" class="label label-info pull-right">Saving...</div>');
+
+	$.post('/admin/users/edit-details/' + id, $('#userDetailsForm').serialize() )
+	.done( function(data)
+	{
+		$('#savingLabel').removeClass('label-info').addClass('label-success').text('Done!').fadeOut(2000);
+	})
+	.fail( function()
+	{
+		$('#savingLabel').removeClass('label-info').addClass('label-danger').text('Failed!').fadeOut(2000);
+	})
+	.always( function()
+	{
+		$btn.removeAttr('disabled');
+	});
+});
+
+$('[data-action="saveSettings"]').click( function()
+{
+	var id = $('#userSettingsForm').data('userid');
+	$.post('/admin/users/edit-settings/' + id, $('#userSettingsForm').serialize() )
+	.done( function(data)
+	{
+		alert(data);
+	});
+});
+
+$('[data-action="saveDetails"]').click( function()
+{
+	var $btn = $(this);
 });
 
 function reduceUnreadMessages()

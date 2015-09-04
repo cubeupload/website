@@ -39,7 +39,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/">cubeupload admin panel</a>
+				<a class="navbar-brand" href="/">cubeadmin</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -127,8 +127,11 @@
 	<footer class="footer">
       <div class="container">
         <div class="row">
-        	<div class="col-md-12">
-        		CUBEUPLOAD 1337 ADMIN PANEL
+        	<div class="col-md-6">
+        		Logged in as {{ Auth::user()->name }} <small>(<a href="{{ url('/auth/logout') }}">Logout</a>)</small>
+        	</div>
+        	<div class="col-md-6">
+        		<a href="{{ url('/') }}" class="pull-right">Return to site</a>
         	</div>
         </div>
       </div>
@@ -141,8 +144,8 @@
 
 	<script src="{{ asset('/js/validator.js') }}"></script>
 	<script src="{{ asset('/js/cubeupload.js?v=1') }}"></script>
-	<script src="{{ asset('/admin/js/cubeupload-admin.js') }}"></script>
-	<script src="{{ asset('/admin/js/cubeupload-viewmodels.js') }}"></script>
+	<script src="{{ asset('/_admin/js/cubeupload-admin.js') }}"></script>
+	<script src="{{ asset('/_admin/js/cubeupload-viewmodels.js') }}"></script>
 	
 	@yield('scripts')
 

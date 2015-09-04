@@ -22,13 +22,13 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					From {{ $message->email or 'Anonymous' }} 
-					@if( !$message->read)
-					<span class="label label-info" data-type="newLabel">New</span>
-					@endif
 					@if( $message->category == 'abuse' )
 					<span class="label label-danger">{{ ucfirst( $message->category ) }}</span>
 					@else
 					<span class="label label-primary">{{ ucfirst( $message->category ) }}</span>
+					@endif
+					@if( !$message->read)
+					<span class="label label-info" data-type="newLabel">New</span>
 					@endif
 					<div class="btn-group btn-group-xs pull-right">
 						@if( !$message->read )
