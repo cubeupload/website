@@ -17,4 +17,15 @@ class NoticesController extends Controller
 		return view('backend.noticeslist')->with('notices', $notices);
 	}
 
+	public function getEdit($id)
+	{
+		$notice = Notice::find($id);
+
+		if( $notice )
+			return view('backend.noticeedit')->with('notice', $notice);
+		else
+			return view('backend.noticeedit');
+
+	}
+
 }

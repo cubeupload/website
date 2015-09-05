@@ -125,3 +125,28 @@ function reduceUnreadMessages()
 	else if( unreadMessages == 1 )
 		$unreadMessagesBadge.hide();
 }
+
+$('#title').change( function()
+{
+	$('[data-notice-title]').text( $(this).val() );
+});
+
+$('#text').change( function()
+{
+	$('[data-notice-text]').html( $(this).val() );
+});
+
+$('#dismissable').change( function()
+{
+	var checked = $(this).is(':checked');
+
+	if( checked )
+		$('[data-notice-close]').show();
+	else
+		$('[data-notice-close]').hide();
+});
+
+$('#style').change( function()
+{
+	$('#notice').attr('class', 'alert alert-' + $(this).val() );
+});
