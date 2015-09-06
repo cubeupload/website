@@ -11,28 +11,30 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						Edit Notice
-						<div class="btn-group btn-group-xs pull-right">
-							<button type="submit" class="btn btn-primary" data-action="saveNotice">Save</button>
-						</div>
 					</div>
 					<div class="panel-body">
-						<div id="notice" class="alert alert-{{ $notice->type }}" role="alert">
-							<strong data-notice-title>{{ $notice->title }}</strong>
-							<button type="button" class="close" aria-label="Close" data-notice-close><span aria-hidden="true">&times;</span></button>
-							<span data-notice-text>{!! $notice->text !!}</span>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12">
+									<div id="notice" class="alert alert-{{ $notice->type }}" role="alert" style="margin-bottom:0;">
+										<button type="button" class="close" aria-label="Close" data-notice-close @if( !$notice->dismissable ) style="display:none;" @endif><span aria-hidden="true">&times;</span></button>
+										<span data-notice-text>{!! $notice->text !!}</span>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="panel-body">
 						<form id="" class="form-horizontal">
 							<div class="form-group">
-								<label for="title" class="col-md-1 control-label">Title</label>
+								<label title="Basic description of this notice, for reference purposes." for="title" class="col-md-1 control-label">Title</label>
 								<div class="col-md-4">
 									<input type="text" class="form-control" id="title" name="title" value="{{ $notice->title }}">
 								</div>
 							</div>
 							<div class="form-group">
-								<label title="Notice body. HTML is OK." for="text" class="col-md-1 control-label">Text</label>
-								<div class="col-md-4">
+								<label title="The content of the notice. HTML is OK." for="text" class="col-md-1 control-label">Text</label>
+								<div class="col-md-5">
 									<textarea class="form-control" id="text" name="text" cols="3">{{ $notice->text }}</textarea>
 								</div>
 							</div>
@@ -40,10 +42,21 @@
 								<label for="style" class="col-md-1 control-label">Style</label>
 								<div class="col-md-4">
 									<select class="form-control" id="style" name="style">
-										<option value="success">Success</option>
-										<option value="info">Info</option>
-										<option value="warning">Warning</option>
-										<option value="danger">Danger</option>
+										<option value="success" @if( $notice->type == 'success') selected @endif>Success</option>
+										<option value="info" @if( $notice->type == 'info') selected @endif>Info</option>
+										<option value="warning" @if( $notice->type == 'warning') selected @endif>Warning</option>
+										<option value="danger" @if( $notice->type == 'danger') selected @endif>Danger</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="show_to" class="col-md-1 control-label">Show To</label>
+								<div class="col-md-4">
+									<select class="form-control" id="show_to" name="show_to">
+										<option value="all" @if( $notice->show_to == 'all') selected @endif>Everyone</option>
+										<option value="admins" @if( $notice->show_to == 'admins') selected @endif>Admins (Site & CubeAdmin)</option>
+										<option value="users" @if( $notice->show_to == 'users') selected @endif>Regular Users</option>
+										<option value="guests" @if( $notice->show_to == 'guests') selected @endif>Guests</option>
 									</select>
 								</div>
 							</div>
@@ -65,6 +78,12 @@
 								</div>
 							</div>							
 						</form>
+						<div class="form-group">
+							<div class="col-md-offset-1 col-md-4">
+								<button type="submit" class="btn btn-primary" data-action="saveNotice">Save</button>
+								<button type="button" class="btn btn-danger" data-action="deleteNotice">Delete</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

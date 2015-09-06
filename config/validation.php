@@ -12,10 +12,8 @@ return [
 		[
 			'user_edit' =>
 			[
-				'id' => 'required|exists:users',
 				'name' => 'required',
-				'email' => 'required|email|max:255|unique:users',
-				'username' => 'required|min:2|max:20|unique:users',
+				'email' => 'required|email|max:255|unique:users,email',
 				'password' => 'confirmed|min:6'
 			],
 			'user_new' =>

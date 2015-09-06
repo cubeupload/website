@@ -28,7 +28,7 @@
 							<div class="form-group">
 								<label for="username" class="col-md-3 control-label">Username</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="username" name="username" value="{{ $user->username or '' }}">
+									<p class="form-control-static" id="username">{{ $user->username or ''}}</p>
 								</div>
 							</div>
 							<div class="form-group">
@@ -64,7 +64,7 @@
 							<div class="form-group">
 								<label for="passwordConfirm" class="col-md-3 control-label">Password (Confirm)</label>
 								<div class="col-md-9">
-									<input type="password" class="form-control" id="password_confirm" name="password_confirm">
+									<input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
 								</div>
 							</div>
 						</form>

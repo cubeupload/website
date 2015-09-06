@@ -110,11 +110,6 @@ $('[data-action="saveSettings"]').click( function()
 	});
 });
 
-$('[data-action="saveDetails"]').click( function()
-{
-	var $btn = $(this);
-});
-
 function reduceUnreadMessages()
 {
 	var $unreadMessagesBadge = $('[data-type="unreadMessagesBadge"]');
@@ -125,11 +120,6 @@ function reduceUnreadMessages()
 	else if( unreadMessages == 1 )
 		$unreadMessagesBadge.hide();
 }
-
-$('#title').change( function()
-{
-	$('[data-notice-title]').text( $(this).val() );
-});
 
 $('#text').change( function()
 {

@@ -5,25 +5,29 @@
 @stop
 
 @section('content')
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4"><small>Click a notice to edit it.</small></div>
-		</div>
-		<div class="row">
-			@foreach( $notices as $notice )
-			<div class="col-md-12">
-				<a style="text-decoration: none;" href="{{ url('/admin/notices/edit/' . $notice->id ) }}">
-					<div class="alert alert-{{ $notice->type }}" role="alert">
-						<strong>{{ $notice->title }}</strong>
-						<span title="Notice can be seen by {{ $notice->show_to }} users" class="label label-{{ $notice->type }} pull-right">{{ ucfirst( $notice->show_to ) }}</span>
+		@foreach( $notices as $notice )
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					{{ $notice->title }}
+					@if( $notice->visible )
+					<span title="Notice will be shown" class="label label-info">Visible</span>
+					@else
+					<span title="Notice is disabled and not visible" class="label label-default">Hidden</span>
+					@endif
+					<span title="Notice is for {{ $notice->show_to }} users" class="label label-primary">{{ ucfirst( $notice->show_to ) }}</span> 
+					<div class="btn-group btn-group-xs pull-right">
+						<a href="{{ url('/admin/notices/edit/' . $notice->id ) }}" class="btn btn-default">Edit</a>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="alert alert-{{ $notice->type }}" role="alert" style="margin-bottom: 0;">
+						<button type="button" class="close" aria-label="Close" data-notice-close @if( !$notice->dismissable ) style="display:none;" @endif><span aria-hidden="true">&times;</span></button>
 						{!! $notice->text !!}
 					</div>
-				</a>
+				</div>
 			</div>
-			@endforeach
 		</div>
-	</div>
-
+		@endforeach
 
 @stop

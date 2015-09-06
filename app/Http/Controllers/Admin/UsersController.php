@@ -25,40 +25,7 @@ class UsersController extends Controller
 
 	public function postIndex()
 	{
-		$fields = Input::all();
-		//dd( $fields );
-		if( array_key_exists( 'id', $fields ) ) // has ID, we're editing.
-		{
-			$user = User::find( $fields['id'] );
 
-			if( $user !== null )
-			{
-				$v = Validator::make( $fields, Config::get('validation.admin.user_edit') );
-
-				if( $v->fails() )
-					return Response::json($v->messages(), 400 );
-				else
-				{
-					$user->update( $fields );
-					return Response::json($user);
-				}
-			}
-			else
-				return Response::json(['error' => 'User ID not found'], 404 );
-		}
-		else
-		{
-			//No ID in POST, let's try to create.
-			$v = Validator::make( $fields, Config::get('validation.user_reg') );
-
-			if( $v->passes() )
-			{
-				$user = User::create($fields);
-				return Response::json($user);
-			}
-			else
-				return Response::json( $v->messages(), 400 );
-		}
 	}
 
 	public function getShow( $id )
@@ -86,7 +53,30 @@ class UsersController extends Controller
 
 	public function postEditDetails($id)
 	{
-		return Input::all();
+		$user = User::find($id);
+
+		if( !$user )
+			return response(['error' => 'User not found'], 404);
+		else
+		{
+			$input = Input::all();
+			$rules = config('validation.admin.user_edit');
+			$rules['email'] .= ',' . $user->id;
+
+			$validator = Validator::make( $input, $rules );
+
+			if( $validator->passes() )
+			{
+				if( $user->update( $input ) )
+					return response( ['message' => 'User updated' ]);
+				else
+					return response( ['error' => 'User was not updated'], 500);
+				
+			}
+			else
+				return response( $validator->messages(), 400 );
+
+		}
 	}
 
 	public function postEditSettings($id)

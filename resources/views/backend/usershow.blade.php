@@ -33,7 +33,7 @@
 								<div class="form-group">
 									<label for="level" class="col-md-3 control-label">Access Level</label>
 									<div class="col-md-9">
-										@if( Auth::user()->level <= $user->level )
+										@if( Auth::user()->level < $user->level )
 										<p class="form-control-static">Hidden</p>
 										@else
 										<p class="form-control-static">{{ $user->level or ''}}</p>
@@ -75,6 +75,9 @@
 							<a href="{{ url('/admin/images/user/' . $user->id )}}" class="btn btn-default btn-xs pull-right">More</a>
 						</div>
 						<div class="panel-body">
+							@if( $images->count() == 0 )
+							This user hasn't uploaded anything yet.
+							@endif
 							@foreach( $images as $image )
 							<div class="col-md-4">
 								<a class="thumbnail" href="#">

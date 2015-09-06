@@ -25,7 +25,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['name', 'email', 'password', 'username'];
+	protected $fillable = ['name', 'email', 'password', 'username', 'level'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -111,6 +111,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 			return true;
 		else
 			return false;
+	}
+
+	public function scopeRecent($query, $number = 15)
+	{
+		return $query->orderBy('created_at', 'desc')->take($number);
 	}
 
 }

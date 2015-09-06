@@ -75,7 +75,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Notices <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="{{ url('/admin/notices/add') }}">Add</a></li>
-							<li><a href="{{ url('/admin/notices/list') }}">List</a></li>
+							<li><a href="{{ url('/admin/notices') }}">List</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">

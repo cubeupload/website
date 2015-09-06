@@ -101,4 +101,9 @@ class Image extends Model {
 	{
 		return $this->deleteKey = str_random(8);
 	}
+
+	public function scopeRecent($query, $number = 15)
+	{
+		return $query->orderBy('created_at', 'desc')->take($number);
+	}
 }
