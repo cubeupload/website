@@ -18,9 +18,15 @@ class UsersController extends Controller
 	// listing of users
 	public function getIndex(Request $request)
 	{
-		$users = User::paginate(30);
-		
-		return view('backend.userlist')->with('users', $users);
+		$users = new User;
+
+		if( Input::has('username') && !empty( Input::get('username')))
+			$users = $users->where( 'username', 'like', '%' . Input::get('username') . '%' );		
+
+		if( Input::has('email') && !empty( Input::get('email')))
+			$users = $users->where( 'email', 'like', '%' . Input::get('email') . '%' );		
+
+		return view('backend.userlist')->with(['users' => $users->paginate(30), 'search' => Input::all() ]);
 	}
 
 	public function postIndex()

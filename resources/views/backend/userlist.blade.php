@@ -10,6 +10,26 @@
 		<div class="container-fluid">
 			<div class="panel panel-default">
 				<div class="panel-heading">
+					Search
+				</div>
+				<div class="panel-body">
+					<div class="col-md-12">
+						<form class="form-inline" action="">
+							<div class="form-group">
+								<label for="username">Username</label>
+								<input type="text" class="form-control" id="username" name="username" value="{{ $search['username'] or '' }}">
+							</div>
+							<div class="form-group">
+								<label for="email">Email</label>
+								<input type="text" class="form-control" id="email" name="email" value="{{ $search['email'] or '' }}">
+							</div>
+							<button type="submit" class="btn btn-primary">Search</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
 					User List
 				</div>
 				<div class="panel-body">
