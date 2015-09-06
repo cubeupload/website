@@ -32,7 +32,7 @@ class HomeController extends Controller {
 	 */
 	public function getIndex()
 	{
-		$notices = Notice::fetchForSession();
+		$notices = Notice::fetchForFrontend();
 		return view('frontend.home')->with('notices', $notices);
 	}
 

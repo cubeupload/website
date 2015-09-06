@@ -26,7 +26,7 @@ class UsersController extends Controller
 		if( Input::has('email') && !empty( Input::get('email')))
 			$users = $users->where( 'email', 'like', '%' . Input::get('email') . '%' );		
 
-		return view('backend.userlist')->with(['users' => $users->paginate(30), 'search' => Input::all() ]);
+		return view('backend.userlist')->with(['users' => $users->paginate(3), 'search' => Input::all() ]);
 	}
 
 	public function postIndex()

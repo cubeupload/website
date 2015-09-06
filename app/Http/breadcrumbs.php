@@ -71,6 +71,12 @@
 		$breadcrumbs->push('Notices', '/admin/notices');
 	});
 
+	Breadcrumbs::register('/admin/notices/add', function( $breadcrumbs )
+	{
+		$breadcrumbs->parent('/admin/notices');
+		$breadcrumbs->push('Add', '/admin/notices/add');
+	});
+
 	Breadcrumbs::register('/admin/notices/edit', function( $breadcrumbs, $notice )
 	{
 		$breadcrumbs->parent('/admin/notices');

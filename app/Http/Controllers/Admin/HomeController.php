@@ -7,15 +7,22 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Image;
+use App\Models\Notice;
 
 class HomeController extends Controller 
 {
 
 	public function getIndex()
 	{
+		$notices = Notice::fetchForBackend();
 		$recent_users = User::recent(15)->get();
 		$recent_images = Image::recent(50)->get();
-		return view('backend.home')->with(['users' => $recent_users, 'images' => $recent_images ]);
+
+		return view('backend.home')->with([
+			'users' => $recent_users,
+			'images' => $recent_images,
+			'notices' => $notices
+		]);
 	}
 
 }

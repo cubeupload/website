@@ -7,12 +7,14 @@ use Auth;
 class Notice extends Model 
 {
 
+	protected $fillable = ['title', 'text', 'dismissable', 'metric', 'visible', 'show_to', 'type'];
+
 	public function user()
 	{
 		return $this->belongsTo('App\Models\User');
 	}
 
-	public static function fetchForSession()
+	public static function fetchForFrontend()
 	{
 		$notices = self::whereVisible(1)->whereShowTo('all');
 
@@ -31,6 +33,18 @@ class Notice extends Model
 			$notices->orWhere('show_to', 'guests');
 
 		$notices->orderBy('metric', 'asc');
+		return $notices->get();
+	}
+
+	public static function fetchForBackend()
+	{
+		$notices = self::whereVisible(1)->whereShowTo('admins')->orWhere('show_to', 'all');
+
+		if( Session::has('dismissed_notices') )
+			$notices->whereNotIn('id', Session::get('dismissed_notices'));
+
+		$notices->orderBy('metric', 'asc');
+
 		return $notices->get();
 	}
 }
