@@ -72,7 +72,9 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							Latest Images
+							@if( $images->count() > 0 )
 							<a href="{{ url('/admin/images/user/' . $user->id )}}" class="btn btn-default btn-xs pull-right">More</a>
+							@endif
 						</div>
 						<div class="panel-body">
 							@if( $images->count() == 0 )
@@ -80,9 +82,13 @@
 							@endif
 							@foreach( $images as $image )
 							<div class="col-md-4">
-								<a class="thumbnail" href="#">
+								<div class="thumbnail">
 									<img src="{{ $image->getPublicUrl() }}">
-								</a>
+									<div class="caption">
+										<p><strong>{{ $image->name }}</strong></p>
+										<p><small>{{ $image->created_at->diffForHumans() }}</small></p>
+									</div>
+								</div>
 							</div>
 							@endforeach
 						</div>
