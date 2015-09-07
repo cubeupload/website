@@ -21,10 +21,10 @@ class UsersController extends Controller
 		$users = new User;
         $input = Input::all();
 
-        if( array_key_exists( $input, 'username') && !empty( $input['username'] ))
+        if( array_key_exists( 'username', $input ) && !empty( $input['username'] ))
 			$users = $users->where( 'username', 'like', '%' . $input['username'] . '%' );
 
-        if( array_key_exists( $input['email'], 'email') && !empty( $input['email'] ))
+        if( array_key_exists( 'email', $input ) && !empty( $input['email'] ))
 			$users = $users->where( 'email', 'like', '%' . $input['email'] . '%' );
 
 		return view('backend.userlist')->with(['users' => $users->paginate(3), 'search' => Input::all() ]);
