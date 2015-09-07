@@ -21,8 +21,8 @@
 					</div>
 				</div>
 				<div class="panel-body">
-					<div class="alert alert-{{ $notice->type }}" role="alert" style="margin-bottom: 0;">
-						<button type="button" class="close" aria-label="Close" data-notice-close @if( !$notice->dismissable ) style="display:none;" @endif><span aria-hidden="true">&times;</span></button>
+					<div class="alert alert-{{ $notice->style }}" role="alert" style="margin-bottom: 0;">
+						<button title="This notice can be dismissed by viewers." type="button" class="close" aria-label="Close" data-notice-close @if( !$notice->dismissable ) style="display:none;" @endif><span aria-hidden="true">&times;</span></button>
 						{!! $notice->text !!}
 					</div>
 				</div>

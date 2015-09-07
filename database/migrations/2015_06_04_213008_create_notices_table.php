@@ -19,7 +19,7 @@ class CreateNoticesTable extends Migration {
 			$table->string('title');
 			$table->text('text');
 			$table->enum('show_to', ['users', 'guests', 'admins', 'all']);
-			$table->enum('type', ['success', 'info', 'warning', 'danger']);
+			$table->enum('style', ['success', 'info', 'warning', 'danger']);
 			$table->integer('dismissable');
 			$table->integer('metric'); // order
 			$table->integer('visible'); // WIP or shown

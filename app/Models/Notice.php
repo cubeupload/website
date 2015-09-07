@@ -7,7 +7,7 @@ use Auth;
 class Notice extends Model 
 {
 
-	protected $fillable = ['title', 'text', 'dismissable', 'metric', 'visible', 'show_to', 'type'];
+	protected $fillable = ['title', 'text', 'dismissable', 'metric', 'visible', 'show_to', 'style' ];
 
 	public function user()
 	{

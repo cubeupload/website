@@ -42,10 +42,10 @@
 								<label for="style" class="col-md-1 control-label">Style</label>
 								<div class="col-md-4">
 									<select class="form-control" id="style" name="style">
-										<option value="success" @if( $notice->type == 'success') selected @endif>Success</option>
-										<option value="info" @if( $notice->type == 'info') selected @endif>Info</option>
-										<option value="warning" @if( $notice->type == 'warning') selected @endif>Warning</option>
-										<option value="danger" @if( $notice->type == 'danger') selected @endif>Danger</option>
+										<option value="success" @if( $notice->style == 'success') selected @endif>Success</option>
+										<option value="info" @if( $notice->style == 'info') selected @endif>Info</option>
+										<option value="warning" @if( $notice->style == 'warning') selected @endif>Warning</option>
+										<option value="danger" @if( $notice->style == 'danger') selected @endif>Danger</option>
 									</select>
 								</div>
 							</div>
