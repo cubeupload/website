@@ -19,12 +19,13 @@ class UsersController extends Controller
 	public function getIndex(Request $request)
 	{
 		$users = new User;
+        $input = Input::all();
 
-		if( Input::has('username') && !empty( Input::get('username')))
-			$users = $users->where( 'username', 'like', '%' . Input::get('username') . '%' );		
+        if( array_key_exists( $input, 'username') && !empty( $input['username'] ))
+			$users = $users->where( 'username', 'like', '%' . $input['username'] . '%' );
 
-		if( Input::has('email') && !empty( Input::get('email')))
-			$users = $users->where( 'email', 'like', '%' . Input::get('email') . '%' );		
+        if( array_key_exists( $input['email'], 'email') && !empty( $input['email'] ))
+			$users = $users->where( 'email', 'like', '%' . $input['email'] . '%' );
 
 		return view('backend.userlist')->with(['users' => $users->paginate(3), 'search' => Input::all() ]);
 	}
