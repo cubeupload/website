@@ -29,5 +29,7 @@
 			</div>
 		</div>
 		@endforeach
-
+		<div class="col-md-12">
+			<a class="btn btn-primary pull-right" href="{{ url('/admin/notices/add') }}">Add New</a>
+		</div>
 @stop
