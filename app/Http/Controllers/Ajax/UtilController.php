@@ -10,12 +10,6 @@ use Session;
 
 class UtilController extends Controller 
 {
-
-	public function postAcceptCookies()
-	{
-		return Session::put( 'cookies_accepted', true );
-	}
-
 	public function getKillSession()
 	{
 		Session::flush();
