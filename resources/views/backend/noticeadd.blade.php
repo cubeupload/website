@@ -63,10 +63,12 @@
 							<label class="col-md-1 control-label">Options</label>
 							<div class="col-md-6">
 								<label title="If checked, users can hide this notice." class="col-md-3 checkbox-inline">
-									<input type="checkbox" id="dismissable" name="dismissable"> Dismissable
+									<input type="hidden" name="dismissable" value="0">
+									<input type="checkbox" id="dismissable" name="dismissable" value="1"> Dismissable
 								</label>
 								<label class="col-md-3 checkbox-inline">
-									<input type="checkbox" id="visible" name="visible"> Visible
+									<input type="hidden" name="visible" value="0">
+									<input type="checkbox" id="visible" name="visible" value="1"> Visible
 								</label>								
 							</div>
 						</div>
