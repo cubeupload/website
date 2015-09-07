@@ -35,7 +35,7 @@
 				<div class="panel-body">
 					<div class="col-md-12">
 						@if( count( $users ) == 0 )
-						<h4>We have no users, how weird...</h4>
+						<h4>No users found.</h4>
 						@else
 						<table class="table">
 							<thead>
