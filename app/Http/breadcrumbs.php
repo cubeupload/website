@@ -20,6 +20,12 @@
 		$breadcrumbs->push($user->username, '/admin/users/show/' . $user->id);
 	});
 
+	Breadcrumbs::register('/admin/users/stats', function( $breadcrumbs, $user )
+	{
+		$breadcrumbs->parent('/admin/users/show', $user);
+		$breadcrumbs->push('Statistics', '/admin/users/stats/' . $user->id);
+	});
+
 	Breadcrumbs::register('/admin/users/edit', function( $breadcrumbs, $user )
 	{
 		$breadcrumbs->parent('/admin/users/show', $user);

@@ -9,9 +9,12 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							User Details
-							@if( ($user->isSuperUser() && (Auth::user()->id == $user->id)) || !$user->isSuperUser() )
-							<a href="{{ url('/admin/users/edit/' . $user->id )}}" class="btn btn-default btn-xs pull-right">Edit</a>
-							@endif
+							<div class="btn-group pull-right">
+								<a href="{{ url('/admin/users/stats/' . $user->id )}}" class="btn btn-default btn-xs">Stats</a>
+								@if( ($user->isSuperUser() && (Auth::user()->id == $user->id)) || !$user->isSuperUser() )
+								<a href="{{ url('/admin/users/edit/' . $user->id )}}" class="btn btn-default btn-xs">Edit</a>
+								@endif
+							</div>
 						</div>
 						<div class="panel-body">
 							@if( $user->isSuperUser() )

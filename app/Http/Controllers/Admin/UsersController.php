@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 
+use Cache;
 use Config;
 use Input;
 use Response;
@@ -89,6 +90,34 @@ class UsersController extends Controller
 	public function postEditSettings($id)
 	{
 		return Input::all();
+	}
+
+	public function getStats($id)
+	{
+		$user = User::find($id);
+
+		if( $user )
+		{
+			$stats = [];
+			$cacheId = 'user.' . $user->id . '.stats';
+
+			if( Cache::has($cacheId))
+			{
+				$stats = Cache::get($cacheId);
+			}
+			else
+			{
+				$images = $user->images();
+
+				$stats['totalUploads'] = $images->count();
+				$stats['uploadsPerWeek'] = 123;
+				$stats['diskUsed'] = $images->sum('size');
+
+				Cache::put( $cacheId, $stats, 60 );
+			}
+
+			return view('backend.userstats')->with( ['stats' => $stats, 'user' => $user ]);
+		}
 	}
 
 }
