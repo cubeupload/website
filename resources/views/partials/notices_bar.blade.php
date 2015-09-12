@@ -1,6 +1,4 @@
 <!-- Notices -->
-<div class="container">
-	<div class="row">
 		@foreach( $notices as $notice )
 		<div class="col-md-12">
 			<div class="alert alert-{{ $notice->style }}" role="alert">
@@ -11,5 +9,3 @@
 			</div>
 		</div>
 		@endforeach
-	</div>
-</div>
