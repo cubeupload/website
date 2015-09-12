@@ -2,7 +2,11 @@
 
 @section('content')
 
-	@include('partials/notices_bar')
+	<div class="container">
+		<div class="row">
+			@include('partials/notices_bar')
+		</div>
+	</div>
 
 	<div class="container">
 		<div class="row">
