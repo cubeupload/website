@@ -25,7 +25,7 @@
 							</div>
 							<div class="form-group">
 								<label for="email">IP Address</label>
-								<input type="text" class="form-control" id="ipaddress" name="ipaddress" value="{{ $search['ipaddress'] or '' }}">
+								<input type="text" class="form-control" id="ip_address" name="ip_address" value="{{ $search['ip_address'] or '' }}">
 							</div>
 							<button type="submit" class="btn btn-primary">Search</button>
 							<a class="btn btn-link" href="{{ url('/admin/users') }}">Reset Filters</a>
@@ -59,8 +59,8 @@
 									<td>{{ $user->name }}</td>
 									<td>{{ $user->username }}</td>
 									<td>{{ $user->email }}</td>
-									<td>{{ $user->created_at }}</td>
-									<td>{{ $user->updated_at }}</td>
+									<td>{{ $user->created_at->diffForHumans() }}</td>
+									<td>{{ $user->updated_at->diffForHumans() }}</td>
 									<td>
 										<div class="btn-group btn-group-xs" role="group" aria-label="usercontrols">
 											<a role="button" class="btn btn-default" href="{{ url('/admin/users/show/' . $user->id) }}">View</a>

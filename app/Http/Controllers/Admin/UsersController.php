@@ -28,6 +28,9 @@ class UsersController extends Controller
         if( array_key_exists( 'email', $input ) && !empty( $input['email'] ))
 			$users = $users->where( 'email', 'like', '%' . $input['email'] . '%' );
 
+		if( array_key_exists( 'ip_address', $input ) && !empty( $input['ip_address'] ))
+			$users = $users->where( 'registration_ip', 'like', '%' . $input['ip_address'] . '%' );
+
 		return view('backend.userlist')->with(['users' => $users->paginate(30), 'search' => $input ]);
 	}
 
