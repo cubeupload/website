@@ -22,7 +22,7 @@
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<div class="form-group">
 							<label class="col-md-4 control-label">Name</label>
-							<div class="col-md-6">
+							<div class="col-md-6" data-toggle="tooltip" data-placement="right" title="Helps us personalise the site for you.">
 								<input type="text" class="form-control" name="name" value="{{ old('name') }}">
 								<div class="help-block with-errors"></div>
 							</div>
@@ -47,7 +47,7 @@
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
+							<div class="col-md-6" data-toggle="tooltip" data-placement="right" title="Minimum 6 characters.">
 								<input type="password" class="form-control" name="password">
 							</div>
 						</div>
