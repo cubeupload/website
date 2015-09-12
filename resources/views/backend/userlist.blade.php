@@ -23,7 +23,12 @@
 								<label for="email">Email</label>
 								<input type="text" class="form-control" id="email" name="email" value="{{ $search['email'] or '' }}">
 							</div>
+							<div class="form-group">
+								<label for="email">IP Address</label>
+								<input type="text" class="form-control" id="ipaddress" name="ipaddress" value="{{ $search['ipaddress'] or '' }}">
+							</div>
 							<button type="submit" class="btn btn-primary">Search</button>
+							<a class="btn btn-default" href="{{ url('/admin/users') }}">Reset</a>
 						</form>
 					</div>
 				</div>
