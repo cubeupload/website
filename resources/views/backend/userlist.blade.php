@@ -75,17 +75,16 @@
 				</div>
 			</div>
 			<div class="col-md-12 pull-right">
+				@if( isset( $search ) )
+				{!! $users->appends($search)->render() !!}
+				@else
 				{!! $users->render() !!}
+				@endif
 			</div>
 		</div>
 	</div>
 @stop
 
 @section('scripts')
-
-	<script>
-		//ko.applyBindings( UserViewModel );
-		ko.applyBindings( UserListViewModel );
-	</script>
 
 @stop
