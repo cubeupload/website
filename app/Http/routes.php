@@ -25,7 +25,7 @@ Route::controllers([
 	'/ajax/util' => 'Ajax\UtilController'
 ]);
 
-Route::group(['middleware' => ['auth', 'cubeadmincheck']], function()
+Route::group(['middleware' => ['auth', 'cubeadmincheck', 'cubeadminunreadmessages']], function()
 {
 	Route::get('/admin', 'Admin\HomeController@getIndex');
 

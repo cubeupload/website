@@ -13,10 +13,7 @@ class AdminServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$messages_unread = Message::unread()->count();
-		
-		if( $messages_unread > 0 )
-			view()->share('messages_unread', $messages_unread);
+
 	}
 
 	/**
