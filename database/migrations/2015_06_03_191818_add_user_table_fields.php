@@ -15,6 +15,7 @@ class AddUserTableFields extends Migration {
 		Schema::table('users', function(Blueprint $table)
 		{
 			$table->string('username')->after('name');
+			$table->string('registration_ip')->nullable();
 			$table->char('level', 1)->default(1)->after('username');
 			$table->string('email')->nullable()->change();
 		});
@@ -31,6 +32,7 @@ class AddUserTableFields extends Migration {
 		{
 			$table->dropColumn('username');
 			$table->dropColumn('level');
+			$table->dropColumn('registration_ip');
 		});
 	}
 
