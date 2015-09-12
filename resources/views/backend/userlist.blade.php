@@ -28,7 +28,7 @@
 								<input type="text" class="form-control" id="ipaddress" name="ipaddress" value="{{ $search['ipaddress'] or '' }}">
 							</div>
 							<button type="submit" class="btn btn-primary">Search</button>
-							<a class="btn btn-default" href="{{ url('/admin/users') }}">Reset</a>
+							<a class="btn btn-link" href="{{ url('/admin/users') }}">Reset Filters</a>
 						</form>
 					</div>
 				</div>
