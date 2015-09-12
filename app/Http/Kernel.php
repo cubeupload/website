@@ -27,7 +27,7 @@ class Kernel extends HttpKernel {
 		'auth' => 'App\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
 		'guest' => 'App\Http\Middleware\RedirectIfAuthenticated',
-		'admincheck' => 'App\Http\Middleware\AdminCheck'
+		'cubeadmincheck' => 'App\Http\Middleware\CubeAdminCheck'
 	];
 
 }

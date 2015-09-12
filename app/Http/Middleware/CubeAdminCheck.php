@@ -3,7 +3,7 @@
 use Closure;
 use Auth;
 
-class AdminCheck
+class CubeAdminCheck
 {
 	public function handle( $request, Closure $next )
 	{
