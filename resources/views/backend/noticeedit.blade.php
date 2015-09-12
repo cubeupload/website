@@ -16,7 +16,7 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-md-12">
-									<div id="notice" class="alert alert-{{ $notice->type }}" role="alert" style="margin-bottom:0;">
+									<div id="notice" class="alert alert-{{ $notice->style }}" role="alert" style="margin-bottom:0;">
 										<button type="button" class="close" aria-label="Close" data-notice-close @if( !$notice->dismissable ) style="display:none;" @endif><span aria-hidden="true">&times;</span></button>
 										<span data-notice-text>{!! $notice->text !!}</span>
 									</div>
