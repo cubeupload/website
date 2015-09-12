@@ -36,11 +36,7 @@
 								<div class="form-group">
 									<label for="level" class="col-md-3 control-label">Access Level</label>
 									<div class="col-md-9">
-										@if( Auth::user()->level < $user->level )
-										<p class="form-control-static">Hidden</p>
-										@else
 										<p class="form-control-static">{{ $user->level or ''}}</p>
-										@endif
 									</div>
 								</div>
 								<div class="form-group">

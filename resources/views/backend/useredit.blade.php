@@ -35,9 +35,9 @@
 								<label for="level" class="col-md-3 control-label">Access Level</label>
 								<div class="col-md-2">
 									@if( Auth::user()->id == $user->id )
-									<p title="You can't change your own access level silly." class="form-control-static" id="level">{{ $user->level or '' }}</p>
+									<p title="You can't change your own access level." class="form-control-static" id="level">{{ $user->level or '' }}</p>
 									@elseif( Auth::user()->level <= $user->level )
-									<p title="User's access level is higher than yours." class="form-control-static">Hidden</p>
+									<p title="Can't edit a user's level if they're equal to or higher than yours." class="form-control-static">{{ $user->level or '' }}</p>
 									@else
 									<input type="text" class="form-control" id="level" name="level" value="{{ $user->level or '' }}">
 									@endif
