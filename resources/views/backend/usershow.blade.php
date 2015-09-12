@@ -52,15 +52,21 @@
 									</div>
 								</div>
 								<div class="form-group">
+									<label for="registration_ip" class="col-md-3 control-label">Registeration IP</label>
+									<div class="col-md-9">
+										<p class="form-control-static">{{ $user->registration_ip or 'Unknown' }}</p>
+									</div>
+								</div>
+								<div class="form-group">
 									<label for="email" class="col-md-3 control-label">Registered</label>
 									<div class="col-md-9">
-										<p class="form-control-static">{{ $user->created_at or '' }}</p>
+										<p class="form-control-static" title="{{ $user->created_at or '' }}">{{ $user->created_at->diffForHumans() }}</p>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="email" class="col-md-3 control-label">Last Active</label>
 									<div class="col-md-9">
-										<p class="form-control-static">{{ $user->updated_at or '' }}</p>
+										<p class="form-control-static" title="{{ $user->updated_at }}">{{ $user->updated_at->diffForHumans() }}</p>
 									</div>
 								</div>
 							</div>
