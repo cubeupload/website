@@ -3,6 +3,7 @@
 use App\Models\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
+use Request;
 
 class Registrar implements RegistrarContract {
 
@@ -29,7 +30,8 @@ class Registrar implements RegistrarContract {
 			'name' => $data['name'],
 			'email' => $data['email'],
 			'password' => $data['password'],
-			'username' => $data['username']
+			'username' => $data['username'],
+			'registration_ip' => Request::ip()
 		]);
 	}
 
