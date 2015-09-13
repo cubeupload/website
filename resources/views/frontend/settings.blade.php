@@ -27,19 +27,19 @@
 						<p>Choose a shortening service for your share links. Great for Twitter.</p>
 						<div class="radio">
 							<label>
-								<input type="radio" name="short_urls" id="short_urls_none" value="none" @if( $user->settings->short_urls == 'none' ) checked @endif>
+								<input type="radio" name="short_urls" id="short_urls_none" value="none" @if( Auth::user()->settings->short_urls == 'none' ) checked @endif>
 								No Short URLs
 							</label>
 						</div>
 						<div class="radio">
 							<label>
-								<input type="radio" name="short_urls" id="short_urls_bitly" value="bitly">
+								<input type="radio" name="short_urls" id="short_urls_bitly" value="bitly" @if( Auth::user()->settings->short_urls == 'bitly' ) checked @endif>
 								Bit.Ly
 							</label>
 						</div>
 						<div class="radio">
 							<label>
-								<input type="radio" name="short_urls" id="short_urls_isgd" value="isgd">
+								<input type="radio" name="short_urls" id="short_urls_isgd" value="isgd" @if( Auth::user()->settings->short_urls == 'isgd' ) checked @endif>
 								Is.Gd
 							</label>
 						</div>
@@ -56,13 +56,13 @@
 						<p>Allows you to keep your filenames or have them randomly generated.</p>
 						<div class="radio">
 							<label>
-								<input type="radio" name="retain_filenames" id="retain_filenames_keep" value="1">
+								<input type="radio" name="retain_filenames" id="retain_filenames_keep" value="1" @if( Auth::user()->settings->retain_filenames == 1 ) checked @endif>
 								Keep filenames
 							</label>
 						</div>
 						<div class="radio">
 							<label>
-								<input type="radio" name="retain_filenames" id="retain_filenames_random" value="0">
+								<input type="radio" name="retain_filenames" id="retain_filenames_random" value="0" @if( Auth::user()->settings->retain_filenames == 0 ) checked @endif>
 								Randomly generate
 							</label>
 						</div>
@@ -80,28 +80,28 @@
 						<div class="checkbox">
 							<label class="checkbox-inline">
 								<input type="hidden" name="embed_html_full" value="0">
-								<input type="checkbox" name="embed_html_full" id="embed_html_full" value="1">
+								<input type="checkbox" name="embed_html_full" id="embed_html_full" value="1" @if( Auth::user()->settings->embed_html_full == 1 ) checked @endif>
 								HTML Full-size
 							</label>
 						</div>
 						<div class="checkbox">
 							<label class="checkbox-inline">
 								<input type="hidden" name="embed_html_thumb" value="0">
-								<input type="checkbox" name="embed_html_thumb" id="embed_html_thumb" value="1">
+								<input type="checkbox" name="embed_html_thumb" id="embed_html_thumb" value="1" @if( Auth::user()->settings->embed_html_thumb == 1 ) checked @endif>
 								HTML Thumbnail
 							</label>
 						</div>
 						<div class="checkbox">
 							<label class="checkbox-inline">
 								<input type="hidden" name="embed_bbcode_full" value="0">
-								<input type="checkbox" name="embed_bbcode_full" id="embed_bbcode_full" value="1">
+								<input type="checkbox" name="embed_bbcode_full" id="embed_bbcode_full" value="1" @if( Auth::user()->settings->embed_bbcode_full == 1 ) checked @endif>
 								BBCode Full-size
 							</label>
 						</div>
 						<div class="checkbox">
 							<label class="checkbox-inline">
 								<input type="hidden" name="embed_bbcode_thumb" value="0">
-								<input type="checkbox" name="embed_bbcode_thumb" id="embed_bbcode_thumb" value="1">
+								<input type="checkbox" name="embed_bbcode_thumb" id="embed_bbcode_thumb" value="1" @if( Auth::user()->settings->embed_bbcode_thumb == 1 ) checked @endif>
 								BBCode Thumbnail
 							</label>
 						</div>
@@ -113,38 +113,5 @@
 		</div>
 
 	</div>
-
-@stop
-
-@section('body_end')
-
-			<script>
-
-				//$('[name="success_msg"]').hide();
-
-				var settings = $.parseJSON('{!! $settings->toJson() !!}');
-				
-				$('#short_urls_' + settings.short_urls).prop('checked', true );
-				
-				if( settings.retain_filenames )
-					$('#retain_filenames_keep').prop('checked', true );
-				else
-					$('#retain_filenames_random').prop('checked', true );
-
-				if( settings.embed_html_full )
-					$('#embed_html_full').prop('checked', true );
-
-				if( settings.embed_html_thumb )
-					$('#embed_html_thumb').prop('checked', true );
-
-				if( settings.embed_bbcode_full )
-					$('#embed_bbcode_full').prop('checked', true );
-
-				if( settings.embed_bbcode_thumb )
-					$('#embed_bbcode_thumb').prop('checked', true );
-
-				$('')
-
-			</script>
 
 @stop
