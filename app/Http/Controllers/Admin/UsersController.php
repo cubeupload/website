@@ -101,23 +101,8 @@ class UsersController extends Controller
 
 		if( $user )
 		{
-			$stats = [];
-			$cacheId = 'user.' . $user->id . '.stats';
-
-			if( Cache::has($cacheId))
-			{
-				$stats = Cache::get($cacheId);
-			}
-			else
-			{
-				$images = $user->images();
-
-				$stats['totalUploads'] = $images->count();
-				$stats['uploadsPerWeek'] = 123;
-				$stats['diskUsed'] = $images->sum('size');
-
-				Cache::put( $cacheId, $stats, 60 );
-			}
+			$stats = $user->getUploadStats();
+			
 
 			return view('backend.userstats')->with( ['stats' => $stats, 'user' => $user ]);
 		}

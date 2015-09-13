@@ -8,6 +8,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 use Hash;
 use Config;
+use Cache;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
@@ -116,6 +117,29 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	public function scopeRecent($query, $number = 15)
 	{
 		return $query->orderBy('created_at', 'desc')->take($number);
+	}
+
+	public function getUploadStats()
+	{
+		$cacheId = 'user.' . $this->id . '.stats';
+		$stats = [];
+
+		if( Cache::has($cacheId))
+		{
+			$stats = Cache::get($cacheId);
+		}
+		else
+		{
+			$images = $this->images();
+
+			$stats['totalUploads'] = $images->count();
+			$stats['uploadsPerWeek'] = 123;
+			$stats['diskUsed'] = $images->sum('size');
+
+			Cache::put( $cacheId, $stats, 60 );
+		}
+
+		return $stats;
 	}
 
 }
