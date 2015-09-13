@@ -1,4 +1,4 @@
-@extends('app')
+@extends('frontend.template')
 
 @section('content')
 
@@ -12,21 +12,21 @@
 			<div class="col-md-4">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						Member for 3 years.
+						Member for {{ Auth::user()->created_at->diffForHumans(null, true) }}.
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						120 images uploaded.
+						{{ $stats['totalUploads'] }} images uploaded.
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						200MB of disk used.
+						{{ human_filesize( $stats['diskUsed'] ) }} of disk used.
 					</div>
 				</div>
 			</div>
@@ -66,5 +66,6 @@
 					<button type="submit" class="btn btn-primary pull-right">Change Password</button>
 			</div>
 		</div>
+	</div>
 
 @stop
