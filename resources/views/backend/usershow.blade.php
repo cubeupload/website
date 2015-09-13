@@ -52,7 +52,7 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="registration_ip" class="col-md-3 control-label">Registeration IP</label>
+									<label for="registration_ip" class="col-md-3 control-label">Registration IP</label>
 									<div class="col-md-9">
 										<p class="form-control-static">{{ $user->registration_ip or 'Unknown' }}</p>
 									</div>
