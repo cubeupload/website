@@ -10,7 +10,7 @@ class Image extends Model {
 
 	use SoftDeletes;
 
-	protected $fillable = ['originalName', 'mimeType', 'size', 'name', 'description', 'hash', 'ip_address'];
+	protected $fillable = ['originalName', 'mimeType', 'size', 'name', 'description', 'hash', 'uploader_ip'];
 
 	public function album()
 	{
@@ -65,7 +65,7 @@ class Image extends Model {
 			'size' => $file->getClientSize(),
 			'mimeType' => $file->getClientMimeType(),
 			'hash' => hash_file( 'md5', $file->getPathname() ),
-			'ip_address' => Request::ip()
+			'uploader_ip' => Request::ip()
 		]);
 
 		$img->name = $img->originalName;
