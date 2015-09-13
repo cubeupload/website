@@ -15,7 +15,7 @@ class HomeController extends Controller
 	public function getIndex()
 	{
 		$notices = Notice::fetchForBackend();
-		$recent_users = User::recent(15)->get();
+		$recent_users = User::recent(10)->get();
 		$recent_images = Image::recent(50)->get();
 
 		return view('backend.home')->with([
