@@ -66,6 +66,22 @@
 
 	// Start - Images Breadcrumbs
 
+	Breadcrumbs::register('/admin/images', function( $breadcrumbs )
+	{
+		$breadcrumbs->push('Images', '/admin/images');
+	});
+
+	Breadcrumbs::register('/admin/images/show', function( $breadcrumbs, $image )
+	{
+		$breadcrumbs->parent('/admin/images');
+		$breadcrumbs->push( $image->name, '/admin/images/show/' . $image->id );
+	});
+
+	Breadcrumbs::register('/admin/images/edit', function( $breadcrumbs, $image )
+	{
+		$breadcrumbs->parent('/admin/images/show', $image);
+		$breadcrumbs->push( 'Edit', '/admin/images/edit/' . $image->id );
+	});
 
 	// End - Images Breadcrumbs
 

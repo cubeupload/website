@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
+use App\Models\Image;
+
 class ImagesController extends Controller {
 
 	public function getUser( $id )
@@ -14,7 +16,19 @@ class ImagesController extends Controller {
 
 	public function getIndex()
 	{
-		
+		$images = Image::paginate(30);
+
+		return view('backend.imagelist')->with( 'images', $images );
+	}
+
+	public function getShow( $id )
+	{
+		$image = Image::find( $id );
+
+		if( $image )
+			return view('backend.imageshow')->with( 'image', $image );
+		else
+			return view('backend.imageshow');
 	}
 
 }

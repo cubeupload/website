@@ -18,6 +18,10 @@ class AddUserTableFields extends Migration {
 			$table->string('registration_ip')->nullable();
 			$table->char('level', 1)->default(1)->after('username');
 			$table->string('email')->nullable()->change();
+			$table->string('legacy_password');
+			$table->integer('legacy_user_id');
+			$table->boolean('new_import');
+			$table->dropUnique('users_email_unique');
 		});
 	}
 
@@ -33,6 +37,9 @@ class AddUserTableFields extends Migration {
 			$table->dropColumn('username');
 			$table->dropColumn('level');
 			$table->dropColumn('registration_ip');
+			$table->dropColumn('legacy_password');
+			$table->dropColumn('legacy_user_id');
+			$table->dropColumn('new_import');
 		});
 	}
 
