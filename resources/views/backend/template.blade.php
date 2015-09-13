@@ -49,7 +49,7 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Images <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="{{ url('/admin/images/list') }}">List</a></li>
+							<li><a href="{{ url('/admin/images') }}">List</a></li>
 							<li><a href="{{ url('/admin/images/recent') }}">Recent</a></li>
 							<li><a href="{{ url('/admin/images/search') }}">Search</a></li>
 						</ul>
