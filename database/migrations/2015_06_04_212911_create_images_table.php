@@ -22,6 +22,7 @@ class CreateImagesTable extends Migration {
 			$table->string('hash', 32);
 			$table->string('originalName');
 			$table->string('deleteKey', 8);
+			$table->string('ip_address', 15);
 			$table->string('mimeType');
 			$table->integer('size');
 			$table->string('tags')->nullable();

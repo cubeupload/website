@@ -4,12 +4,13 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use File;
+use Request;
 
 class Image extends Model {
 
 	use SoftDeletes;
 
-	protected $fillable = ['originalName', 'mimeType', 'size', 'name', 'description', 'hash'];
+	protected $fillable = ['originalName', 'mimeType', 'size', 'name', 'description', 'hash', 'ip_address'];
 
 	public function album()
 	{
@@ -63,7 +64,8 @@ class Image extends Model {
 			'originalName' => $file->getClientOriginalName(),
 			'size' => $file->getClientSize(),
 			'mimeType' => $file->getClientMimeType(),
-			'hash' => hash_file( 'md5', $file->getPathname() )
+			'hash' => hash_file( 'md5', $file->getPathname() ),
+			'ip_address' => Request::ip()
 		]);
 
 		$img->name = $img->originalName;
