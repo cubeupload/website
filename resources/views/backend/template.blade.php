@@ -120,10 +120,13 @@
 	<footer class="footer">
       <div class="container">
         <div class="row">
-        	<div class="col-md-6">
+        	<div class="col-md-4">
         		Logged in as {{ Auth::user()->name }} <small>(<a href="{{ url('/auth/logout') }}">Logout</a>)</small>
         	</div>
-        	<div class="col-md-6">
+        	<div class="col-md-4">
+        		<small><a href="https://github.com/cubeupload/website/commit/{{ $vcs_version }}" target="_blank">{{ $vcs_version }}</a></small>
+        	</div>
+        	<div class="col-md-4">
         		<a href="{{ url('/') }}" class="pull-right">Return to site</a>
         	</div>
         </div>
