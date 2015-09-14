@@ -46,7 +46,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	
 	public function unban()
 	{
-		$this->bans()->current()->lift();
+		$this->bans()->current->lift();
 	}
 
 	public function setPasswordAttribute( $value )
@@ -62,16 +62,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	public function images()
 	{
 		return $this->hasMany('App\Models\Image');
-	}
-
-	public function threads()
-	{
-		return $this->hasMany('App\Models\Thread');
-	}
-
-	public function notices()
-	{
-		return $this->hasMany('App\Models\Notice');
 	}
 
 	public function ipAddresses()
