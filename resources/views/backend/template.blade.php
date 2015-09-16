@@ -8,9 +8,9 @@
 
 	@yield('head')
 
-	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-	<link href="{{ asset('/css/cubeupload.css?v=1') }}" rel="stylesheet">
-	<link href="{{ asset('/_admin/css/cubeupload-admin.css') }}" rel="stylesheet">
+	<link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+	<link href="{{ elixir('css/cubeupload.css') }}" rel="stylesheet">
+	<link href="{{ elixir('css/cubeupload-admin.css') }}" rel="stylesheet">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -118,12 +118,12 @@
 	</div>
 
 	<footer class="footer">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
         	<div class="col-md-4">
         		Logged in as {{ Auth::user()->name }} <small>(<a href="{{ url('/auth/logout') }}">Logout</a>)</small>
         	</div>
-        	<div class="col-md-4">
+        	<div class="col-md-4 text-center">
         		<small>
 	        	@if( isset( $vcs_version ) )
         		<a href="https://github.com/cubeupload/website/commit/{{ $vcs_version }}" target="_blank">{{ $vcs_version }}</a>
@@ -145,9 +145,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
 
 	<script src="{{ asset('/js/validator.js') }}"></script>
-	<script src="{{ asset('/js/cubeupload.js?v=1') }}"></script>
-	<script src="{{ asset('/_admin/js/cubeupload-admin.js') }}"></script>
-	<script src="{{ asset('/_admin/js/cubeupload-viewmodels.js') }}"></script>
+	<script src="{{ elixir('js/cubeupload.js') }}"></script>
+	<script src="{{ elixir('js/cubeupload-admin.js') }}"></script>
 	
 	@yield('scripts')
 

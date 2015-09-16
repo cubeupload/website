@@ -8,8 +8,8 @@
 
 	@yield('head')
 
-	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-	<link href="{{ asset('/css/cubeupload.css?v=1') }}" rel="stylesheet">
+	<link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+	<link href="{{ elixir('css/cubeupload.css') }}" rel="stylesheet">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -75,20 +75,19 @@
 
 	<footer class="footer">
 		<div class="container">
-        		<div class="col-md-6 col-sm-6">
-        			<ul class="nav nav-pills">
-          				<li role="presentation"><a href="#">About</a></li>
-          				<li role="presentation"><a href="#">Contact</a></li>
-          				<li role="presentation"><a href="#">FAQ</a></li>
-          				<li role="presentation"><a href="#">Terms</a></li>
-          				<li role="presentation"><a href="#">Twitter</a></li>
+    		<div class="col-md-6 col-sm-6">
+    			<ul class="nav nav-pills">
+      				<li role="presentation"><a href="#">About</a></li>
+      				<li role="presentation"><a href="#">Contact</a></li>
+      				<li role="presentation"><a href="#">FAQ</a></li>
+      				<li role="presentation"><a href="#">Terms</a></li>
+      				<li role="presentation"><a href="#">Twitter</a></li>
   				</ul>
   			</div>
   			<div class="col-md-6 col-sm-6">
   				<span class="pull-right">Copyright CubeUpload 1234</span>
   			</div>
-      		</div>
-      </div>
+    	</div>
     </footer>
 
 	<!-- Scripts -->
@@ -96,7 +95,7 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 	<script src="{{ asset('/js/validator.js') }}"></script>
-	<script src="{{ asset('/js/cubeupload.js?v=1') }}"></script>
+	<script src="{{ elixir('js/cubeupload.js') }}"></script>
 	
 	@yield('scripts')
 

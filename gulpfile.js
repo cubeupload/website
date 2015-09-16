@@ -14,3 +14,27 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.less('app.less');
 });
+
+// Copy cubeupload resources to public
+elixir(function(mix) {
+	mix
+	.copy('resources/assets/css', 'public/css')
+	.copy('resources/assets/js', 'public/js')
+	.copy('resources/assets/fonts', 'public/build/fonts')
+	.copy('vendor/kartik-v/bootstrap-fileinput/css', 'public/css')
+	.copy('vendor/kartik-v/bootstrap-fileinput/js', 'public/js')
+	.copy('vendor/kartik-v/bootstrap-fileinput/img', 'public/img');
+});
+
+// Version all our stuff
+elixir(function(mix) {
+	mix.version(
+	[
+		'css/app.css',
+		'css/cubeupload.css',
+		'css/cubeupload-admin.css',
+		'js/cubeupload.js',
+		'js/cubeupload-admin.js',
+		'js/cubeupload-fileinput.js'
+	]);
+});
