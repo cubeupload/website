@@ -124,7 +124,13 @@
         		Logged in as {{ Auth::user()->name }} <small>(<a href="{{ url('/auth/logout') }}">Logout</a>)</small>
         	</div>
         	<div class="col-md-4">
-        		<small><a href="https://github.com/cubeupload/website/commit/{{ $vcs_version }}" target="_blank">{{ $vcs_version }}</a></small>
+        		<small>
+	        	@if( isset( $vcs_version ) )
+        		<a href="https://github.com/cubeupload/website/commit/{{ $vcs_version }}" target="_blank">{{ $vcs_version }}</a>
+        		@else
+        		LOCAL DEV
+				@endif
+				</small>
         	</div>
         	<div class="col-md-4">
         		<a href="{{ url('/') }}" class="pull-right">Return to site</a>
