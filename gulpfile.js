@@ -20,10 +20,7 @@ elixir(function(mix) {
 	mix
 	.copy('resources/assets/css', 'public/css')
 	.copy('resources/assets/js', 'public/js')
-	.copy('resources/assets/fonts', 'public/build/fonts')
-	.copy('vendor/kartik-v/bootstrap-fileinput/css', 'public/css')
-	.copy('vendor/kartik-v/bootstrap-fileinput/js', 'public/js')
-	.copy('vendor/kartik-v/bootstrap-fileinput/img', 'public/img');
+	.copy('resources/assets/fonts', 'public/build/fonts');
 });
 
 // Version all our stuff
