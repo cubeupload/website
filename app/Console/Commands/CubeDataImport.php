@@ -24,6 +24,7 @@ class CubeDataImport extends Command
 	 */
 	protected $description = 'Perform a database import from the v4 schema.';
 
+	// This is the legacy database connection
 	private $legacyDb;
 
 	/**
@@ -34,8 +35,6 @@ class CubeDataImport extends Command
 	public function __construct()
 	{
 		parent::__construct();
-
-		$this->legacyDb = DB::connection('cube_v4');
 	}
 
 	/**
@@ -45,6 +44,8 @@ class CubeDataImport extends Command
 	 */
 	public function handle()
 	{
+		$this->legacyDb = DB::connection('cube_v4');
+		
 		$this->showMenu();
 	}
 
