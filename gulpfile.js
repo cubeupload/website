@@ -20,7 +20,8 @@ elixir(function(mix) {
 	mix
 	.copy('resources/assets/css', 'public/css')
 	.copy('resources/assets/js', 'public/js')
-	.copy('resources/assets/fonts', 'public/build/fonts');
+	.copy('resources/assets/fonts', 'public/build/fonts')
+	.copy('resources/assets/img', 'public/img');
 });
 
 // Version all our stuff
