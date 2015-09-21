@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth', 'cubeadmincheck', 'cubeadminunreadmessage
 		'/admin/users' => 'Admin\UsersController',
 		'/admin/messages' => 'Admin\MessagesController',
 		'/admin/notices' => 'Admin\NoticesController',
-		'/admin/images' => 'Admin\ImagesController'
+		'/admin/images' => 'Admin\ImagesController',
+		'/admin/search' => 'Admin\SearchController'
 	]);
 });
