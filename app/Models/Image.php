@@ -111,8 +111,20 @@ class Image extends Model {
 
 	public function scopeLike( $query, $search )
 	{
-		$query = $query->where('name', 'like', '%' . $search . '%');
+		$query = $query->where('name', 'like', '%' . $search . '%')
+			->orWhere('uploader_ip', 'like', '%' . $search . '%');
 
 		return $query;
+	}
+
+	public function getShareCodes()
+	{
+		$codes = [
+			'bbcode' => sprintf( config('codes.bbcode'), $this->getPublicUrl() ),
+			'markdown' => sprintf( config('codes.markdown'), $this->name, $this->getPublicUrl(), $this->name ),
+			'html' => sprintf( config('codes.html'), $this->name, $this->getPublicUrl() )
+		];
+
+		return $codes;
 	}
 }

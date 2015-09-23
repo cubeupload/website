@@ -188,16 +188,17 @@ function queueOmniSearch( query )
 		$.post('/admin/search', { "query": query } )
 		.done( function( data )
 		{
-			$('#searchResults').html(data);
+			$('#userSearchResults').html(data.users);
+			$('#imageSearchResults').html(data.images);
 			omniSearchId = 0;
 			console.log('search finished');
 		})
 	}, 800)
 }
 
-$('[data-action="omniSearch"]').keyup( function()
+$('[data-action="submitOmniSearch"]').submit( function(e)
 {
-	var query = $(this).val();
+	var query = $('#omniSearch').val();
 	if( omniSearchId == 0)
 	{
 		// No search queued, make one
@@ -212,5 +213,16 @@ $('[data-action="omniSearch"]').keyup( function()
 		queueOmniSearch( query );
 	}
 
+	e.preventDefault();
+});
 
-})
+$('#omniSearch').keyup( function()
+{
+	var query = $(this).val();
+
+	if( query != "" )
+		$('#searchButton').removeClass('disabled');
+	else
+		$('#searchButton').addClass('disabled');
+});
+

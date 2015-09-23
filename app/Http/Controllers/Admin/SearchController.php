@@ -30,7 +30,8 @@ class SearchController extends Controller
 		$albums = Album::like($query)->get();
 
 		$usersView = view('backend.partials.userssearchresult')->with('users', $users)->render();
+		$imagesView = view('backend.partials.imagesearchresult')->with('images', $images)->render();
 		
-		return ['users' => $usersView, 'images' => $images, 'albums' => $albums];
+		return ['users' => $usersView, 'images' => $imagesView, 'albums' => $albums];
 	}
 }
