@@ -188,7 +188,7 @@ function queueOmniSearch( query )
 		$.post('/admin/search', { "query": query } )
 		.done( function( data )
 		{
-			$('#searchResults').html(data.view);
+			$('#searchResults').html(data);
 			omniSearchId = 0;
 			console.log('search finished');
 		})

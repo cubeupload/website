@@ -108,4 +108,11 @@ class Image extends Model {
 	{
 		return $query->orderBy('created_at', 'desc')->take($number);
 	}
+
+	public function scopeLike( $query, $search )
+	{
+		$query = $query->where('name', 'like', '%' . $search . '%');
+
+		return $query;
+	}
 }

@@ -14,4 +14,11 @@ class Album extends Model {
 		return $this->belongsTo('App\Models\User');
 	}
 
+	public function scopeLike( $query, $search )
+	{
+		$query = $query->where('name', 'like', '%' . $search . '%');
+
+		return $query;
+	}
+
 }

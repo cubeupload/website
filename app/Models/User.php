@@ -132,4 +132,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		return $stats;
 	}
 
+	public function scopeLike( $query, $search )
+	{
+		$query = $query->where('username', 'like', '%' . $search . '%');
+		$query = $query->orWhere('email', 'like', '%' . $search . '%');
+		$query = $query->orWhere('name', 'like', '%' . $search . '%');
+		$query = $query->orWhere('registration_ip', 'like', '%' . $search . '%');
+
+		return $query;
+	}
+
 }
