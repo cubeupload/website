@@ -5,7 +5,8 @@
 @stop
 
 @section('content')
-				<div class="col-md-6">
+
+				<div class="col-md-4">
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							User Details
@@ -22,50 +23,50 @@
 							@endif
 							<div class="form-horizontal">
 								<div class="form-group">
-									<label for="id" class="col-md-3 control-label">User ID</label>
+									<label for="id" class="col-md-4 control-label">User ID</label>
 									<div class="col-md-4">
 										<p class="form-control-static">{{ $user->id or ''}}</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="username" class="col-md-3 control-label">Username</label>
-									<div class="col-md-9">
+									<label for="username" class="col-md-4 control-label">Username</label>
+									<div class="col-md-8">
 										<p class="form-control-static">{{ $user->username or '' }}</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="level" class="col-md-3 control-label">Access Level</label>
-									<div class="col-md-9">
+									<label for="level" class="col-md-4 control-label">Access Level</label>
+									<div class="col-md-8">
 										<p class="form-control-static">{{ $user->level or ''}}</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="name" class="col-md-3 control-label">Name</label>
-									<div class="col-md-9">
+									<label for="name" class="col-md-4 control-label">Name</label>
+									<div class="col-md-8">
 										<p class="form-control-static">{{ $user->name or ''}}</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="email" class="col-md-3 control-label">Email Address</label>
-									<div class="col-md-9">
+									<label for="email" class="col-md-4 control-label">Email Address</label>
+									<div class="col-md-8">
 										<p class="form-control-static">{{ $user->email or '' }}</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="registration_ip" class="col-md-3 control-label">Registration IP</label>
-									<div class="col-md-9">
+									<label for="registration_ip" class="col-md-4 control-label">Registration IP</label>
+									<div class="col-md-8">
 										<p class="form-control-static">{{ $user->registration_ip or 'Unknown' }}</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="email" class="col-md-3 control-label">Registered</label>
-									<div class="col-md-9">
+									<label for="email" class="col-md-4 control-label">Created</label>
+									<div class="col-md-8">
 										<p class="form-control-static" title="{{ $user->created_at or '' }}">{{ $user->created_at->diffForHumans() }}</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="email" class="col-md-3 control-label">Last Active</label>
-									<div class="col-md-9">
+									<label for="email" class="col-md-4 control-label">Last Modified</label>
+									<div class="col-md-8">
 										<p class="form-control-static" title="{{ $user->updated_at }}">{{ $user->updated_at->diffForHumans() }}</p>
 									</div>
 								</div>
@@ -73,7 +74,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-8">
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							Latest Images
