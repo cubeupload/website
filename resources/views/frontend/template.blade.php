@@ -77,10 +77,11 @@
 		<div class="container">
     		<div class="col-md-6 col-sm-6">
     			<ul class="nav nav-pills">
-      				<li role="presentation"><a href="#">About</a></li>
-      				<li role="presentation"><a href="#">Contact</a></li>
-      				<li role="presentation"><a href="#">FAQ</a></li>
-      				<li role="presentation"><a href="#">Terms</a></li>
+      				<li role="presentation"><a href="/about">About</a></li>
+      				<li role="presentation"><a href="/contact">Contact</a></li>
+      				<li role="presentation"><a href="/faq">FAQ</a></li>
+					<li role="presentation"><a href="/help">Help</a></li>
+      				<li role="presentation"><a href="/terms">Terms</a></li>
       				<li role="presentation"><a href="#">Twitter</a></li>
   				</ul>
   			</div>

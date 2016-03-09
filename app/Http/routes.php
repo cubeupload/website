@@ -13,6 +13,12 @@
 
 Route::get('/', 'HomeController@getIndex');
 
+Route::get('/about', 'PageController@getAbout');
+Route::get('/faq', 'PageController@getFaq');
+Route::get('/contact', 'PageController@getContact');
+Route::get('/terms', 'PageController@getTerms');
+Route::get('/help', 'PageController@getHelp');
+
 Route::controllers([
 	'/auth' => 'Auth\AuthController',
 	'/password' => 'Auth\PasswordController',
@@ -34,6 +40,8 @@ Route::group(['middleware' => ['auth', 'cubeadmincheck', 'cubeadminunreadmessage
 		'/admin/messages' => 'Admin\MessagesController',
 		'/admin/notices' => 'Admin\NoticesController',
 		'/admin/images' => 'Admin\ImagesController',
-		'/admin/search' => 'Admin\SearchController'
+		'/admin/search' => 'Admin\SearchController',
+		'/admin/tools' => 'Admin\ToolsController'
 	]);
 });
+
