@@ -43,7 +43,7 @@
 						<input type="email" class="form-control" id="emailAddress">
 					</div>
 					<button type="submit" class="btn btn-primary pull-right">Verify Email</button>
-					<p>Current address: yourmum@cubeupload.com</p>
+					<p>Current address: {{ Auth::user()->email }}</p>
 
 				</form>
 			</div>
