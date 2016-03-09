@@ -32,7 +32,7 @@
 				$img->save();
 
 				if( !Auth::check() )
-					CloudStorage::put($img->name, File::get($file->getPathname()), 'public');
+					CloudStorage::put($img->getHashPath(), File::get($file->getPathname()), 'public');
 				else
 					CloudStorage::put(Auth::user()->username . '/' . $img->name, File::get($file->getPathname()), 'public');
 
