@@ -38,13 +38,15 @@ class Notice extends Model
 
 	public static function fetchForBackend()
 	{
-		$notices = self::whereVisible(1)->whereShowTo('admins')->orWhere('show_to', 'all');
+		$notices = self::whereVisible(1)->where(function($query)
+		{
+			$query->whereShowTo('admins')->orWhere('show_to', 'all');
+		});
 
 		if( Session::has('dismissed_notices') )
 			$notices->whereNotIn('id', Session::get('dismissed_notices'));
 
 		$notices->orderBy('metric', 'asc');
-
 		return $notices->get();
 	}
 }
