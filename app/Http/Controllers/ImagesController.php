@@ -18,5 +18,4 @@ class ImagesController extends Controller {
 	{
 		return view('frontend.images')->with(['images' => Auth::user()->images()->get()]);
 	}
-
 }
