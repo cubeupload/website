@@ -1,3 +1,5 @@
+var omniSearchId = 0;
+
 $('#userDetail').on( 'show.bs.modal', function(e)
 {
 	var $modal = $(this)
@@ -178,3 +180,49 @@ $('[data-action="saveNotice"]').click( function()
 {
 	submitForm( '#noticeForm', '/admin/notices/edit');
 });
+
+
+function queueOmniSearch( query )
+{
+	omniSearchId = setTimeout( function() { 
+		$.post('/admin/search', { "query": query } )
+		.done( function( data )
+		{
+			$('#userSearchResults').html(data.users);
+			$('#imageSearchResults').html(data.images);
+			omniSearchId = 0;
+			console.log('search finished');
+		})
+	}, 800)
+}
+
+$('[data-action="submitOmniSearch"]').submit( function(e)
+{
+	var query = $('#omniSearch').val();
+	if( omniSearchId == 0)
+	{
+		// No search queued, make one
+		console.log('no search making new one');
+		queueOmniSearch( query );
+	}
+	else
+	{
+		// Clear the old search and get another one started.
+		console.log('cleared a search!');
+		clearTimeout( omniSearchId )
+		queueOmniSearch( query );
+	}
+
+	e.preventDefault();
+});
+
+$('#omniSearch').keyup( function()
+{
+	var query = $(this).val();
+
+	if( query != "" )
+		$('#searchButton').removeClass('disabled');
+	else
+		$('#searchButton').addClass('disabled');
+});
+
