@@ -5,3 +5,4 @@
 *.sublime-workspace
 .githash
 /public/build
+/.vscode
