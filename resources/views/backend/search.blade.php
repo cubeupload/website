@@ -1,5 +1,9 @@
 @extends('backend.template')
 
+@section('breadcrumbs')
+	{!! Breadcrumbs::render('/admin/search') !!}
+@stop
+
 @section('content')
 		<div class="form-group">
 			<form action="/admin/search" method="post" data-action="submitOmniSearch">
