@@ -106,3 +106,21 @@
 	});
 
 	// End - Notices Breadcrumbs
+	
+	// Start - Search Breadcrumb
+	
+	Breadcrumbs::register('/admin/search', function( $breadcrumbs )
+	{
+		$breadcrumbs->push('Search', '/admin/search');
+	});
+	
+	// End - Search Breadcrumb
+	
+	// Start - Statistics Breadcrumb
+	
+	Breadcrumbs::register('/admin/statistics', function( $breadcrumbs )
+	{
+		$breadcrumbs->push('Statistics', '/admin/statistics');
+	});
+	
+	// End - Statistics Breadcrumb
