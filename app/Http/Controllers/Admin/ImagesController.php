@@ -30,5 +30,15 @@ class ImagesController extends Controller {
 		else
 			return view('backend.images.show');
 	}
-
+	
+	public function getDuplicates( $id )
+	{
+		$image = Image::find($id);
+		
+		if( $image )
+		{
+			$dupes = Image::whereHash( $image->hash )->get();
+			return view('backend.images.list')->with('images', $dupes );
+		}
+	}
 }
