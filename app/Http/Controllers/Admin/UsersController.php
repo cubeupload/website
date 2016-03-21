@@ -31,7 +31,9 @@ class UsersController extends Controller
 		if( array_key_exists( 'ip_address', $input ) && !empty( $input['ip_address'] ))
 			$users = $users->where( 'registration_ip', 'like', '%' . $input['ip_address'] . '%' );
 
-		return view('backend.userlist')->with(['users' => $users->paginate(30), 'search' => $input ]);
+		//$users = $users->orderBy('created_at', 'desc');
+
+		return view('backend.users.list')->with(['users' => $users->paginate(30), 'search' => $input ]);
 	}
 
 	public function postIndex()
@@ -44,11 +46,11 @@ class UsersController extends Controller
 		$user = User::find($id);
 
 		if( !$user )
-			return view('backend.usershow')->with('error', 'User not found');
+			return view('backend.users.show')->with('error', 'User not found');
 		else
 		{
 			$images = $user->images()->take(30)->get();
-			return view('backend.usershow')->with(['user' => $user, 'images' => $images]);
+			return view('backend.users.show')->with(['user' => $user, 'images' => $images]);
 		}
 	}
 
@@ -57,9 +59,9 @@ class UsersController extends Controller
 		$user = User::find($id);
 
 		if( !$user )
-			return view('backend.useredit')->with('error', 'User not found');
+			return view('backend.users.edit')->with('error', 'User not found');
 		else
-			return view('backend.useredit')->with('user', $user);
+			return view('backend.users.edit')->with('user', $user);
 	}
 
 	public function postEditDetails($id)
@@ -104,7 +106,7 @@ class UsersController extends Controller
 			$stats = $user->getUploadStats();
 			
 
-			return view('backend.userstats')->with( ['stats' => $stats, 'user' => $user ]);
+			return view('backend.users.stats')->with( ['stats' => $stats, 'user' => $user ]);
 		}
 	}
 
