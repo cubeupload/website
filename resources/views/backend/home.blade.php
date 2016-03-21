@@ -37,22 +37,7 @@
 					There aren't any uploaded images yet.
 					@endif
 					@foreach( $images as $image )
-					<div class="col-md-3">
-						<div class="thumbnail">
-							<img src="{{ $image->getPublicUrl() }}">
-							<div class="caption">
-								<p><strong>{{ $image->name }}</strong></p>
-								<p><small>Uploaded {{ $image->created_at->diffForHumans() }}</small></p>
-								<small> By
-								@if( $image->user )
-								<a href="{{ url('/admin/users/show/' . $image->user->id) }}">{{ $image->user->username }}</a>
-								@else
-								<a href="#">123.123.123.123</a>
-								@endif
-								</small>
-							</div>
-						</div>
-					</div>
+					@include('backend.images.single', ['image' => $image])
 					@endforeach
 				</div>
 			</div>

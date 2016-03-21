@@ -37,6 +37,7 @@
 			<div class="col-md-6">
 				<h3>Change your Email Address</h3>
 				<small>We'll never spam you or sell your address. For account recovery only!</small>
+				<br />
 				<form>
 					<div class="form-group">
 						<label for="emailAddress">Email Address</label>
@@ -50,6 +51,7 @@
 			<div class="col-md-6">
 				<h3>Change Password</h3>
 				<small>At least 6 characters, make it hard to guess!</small>
+				<br />
 				<form>
 					<div class="form-group" style="padding-bottom: 10px;">
 						<label for="currentPassword">Current Password</label>

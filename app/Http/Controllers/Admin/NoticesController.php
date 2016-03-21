@@ -15,12 +15,12 @@ class NoticesController extends Controller
 	{
 		$notices = Notice::all();
 
-		return view('backend.noticelist')->with('notices', $notices);
+		return view('backend.notices.list')->with('notices', $notices);
 	}
 
 	public function getAdd()
 	{
-		return view('backend.noticeadd');
+		return view('backend.notices.add');
 	}
 
 	public function postAdd()
@@ -39,9 +39,9 @@ class NoticesController extends Controller
 		$notice = Notice::find($id);
 
 		if( $notice )
-			return view('backend.noticeedit')->with('notice', $notice);
+			return view('backend.notices.edit')->with('notice', $notice);
 		else
-			return view('backend.noticeedit');
+			return view('backend.notices.edit');
 
 	}
 

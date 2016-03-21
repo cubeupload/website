@@ -28,7 +28,8 @@ Route::controllers([
 	'/account' => 'AccountController',
 	'/ajax/validate' => 'Ajax\ValidateController',
 	'/ajax/image' => 'Ajax\ImageController',
-	'/ajax/util' => 'Ajax\UtilController'
+	'/ajax/util' => 'Ajax\UtilController',
+	'/ajax/messages' => 'Ajax\MessagesController'
 ]);
 
 Route::group(['middleware' => ['auth', 'cubeadmincheck', 'cubeadminunreadmessages']], function()

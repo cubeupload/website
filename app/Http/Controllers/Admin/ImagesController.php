@@ -18,7 +18,7 @@ class ImagesController extends Controller {
 	{
 		$images = Image::paginate(30);
 
-		return view('backend.imagelist')->with( 'images', $images );
+		return view('backend.images.list')->with( 'images', $images );
 	}
 
 	public function getShow( $id )
@@ -26,9 +26,9 @@ class ImagesController extends Controller {
 		$image = Image::find( $id );
 
 		if( $image )
-			return view('backend.imageshow')->with( 'image', $image );
+			return view('backend.images.show')->with( 'image', $image );
 		else
-			return view('backend.imageshow');
+			return view('backend.images.show');
 	}
 
 }

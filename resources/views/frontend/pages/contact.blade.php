@@ -16,7 +16,7 @@
 		<br />
 		<div class="row">
 			<div class="col-md-6">
-				<form class="form-horizontal">
+				<form class="form-horizontal" id="contactForm">
 					<div class="form-group">
 						<label for="name" class="col-md-3 control-label">Name</label>
 						<div class=" col-md-9">
@@ -38,9 +38,9 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="message" class="col-md-3 control-label">Message</label>
+						<label for="text" class="col-md-3 control-label">Message</label>
 						<div class="col-md-9">
-							<textarea class="form-control col-md-9" rows="4" id="message" name="message"></textarea>
+							<textarea class="form-control col-md-9" rows="4" id="text" name="text"></textarea>
 						</div>
 					</div>
 					<div class="form-group">
@@ -53,14 +53,14 @@
 							</select>
 						</div>
 					</div>
-					<div class="form-group hidden contact-thanks">
+					<div id="contactThanks" class="form-group hidden">
 						<div class="col-md-9 col-md-offset-3">
 							<p class="form-control-static">We'll do our best to respond to you within a few days.</p>
 						</div>
 					</div>
-					<div class="form-group">
+					<div id="contactSubmit" class="form-group">
 						<div class="col-md-9 col-md-offset-3">
-							<button type="submit" class="btn btn-default">Post</button>
+							<button data-action="sendMessage" class="btn btn-primary pull-right">Send</button>
 						</div>
 					</div>
 				</form>

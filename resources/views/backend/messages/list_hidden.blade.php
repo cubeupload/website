@@ -10,7 +10,7 @@
 	@else
 	<div class="alert alert-danger">
 		<strong>Heads up!</strong> <br />
-		Once deleted, a message can no longer be viewed in the admin panel. Messages are retained in the database however and can be restored (see Tom).
+		Deleted messages will not be accessible from the web interface but can be restored using the artisan command line. 
 	</div>
 	@endif
 

@@ -3,7 +3,7 @@
 	use Illuminate\Http\Request;
 	use Auth;
 	use File;
-	use CloudStorage;
+	use Storage;
 	use App\Models\Image;
 	use App\Services\ImageCheck;
 
@@ -32,9 +32,9 @@
 				$img->save();
 
 				if( !Auth::check() )
-					CloudStorage::put($img->getHashPath(), File::get($file->getPathname()), 'public');
+					Storage::put($img->getHashPath(), File::get($file->getPathname()), 'public');
 				else
-					CloudStorage::put(Auth::user()->username . '/' . $img->name, File::get($file->getPathname()), 'public');
+					Storage::put(Auth::user()->username . '/' . $img->name, File::get($file->getPathname()), 'public');
 
 				$json = [
 					'initialPreview' => ['<img class="file-preview-image" src="'.$img->getPublicUrl().'"></img>'],

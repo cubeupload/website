@@ -15,13 +15,13 @@ class MessagesController extends Controller
 	public function getIndex()
 	{
 		$messages = Message::whereHidden(false)->orderBy('created_at', 'desc')->paginate(10);
-		return view('backend.messageslist')->with('messages', $messages);
+		return view('backend.messages.list')->with('messages', $messages);
 	}
 
 	public function getCategory( $category )
 	{
 		$messages = Message::whereCategory($category)->whereHidden(false)->orderBy('created_at', 'desc')->paginate(10);
-		return view('backend.messageslist')->with( ['messages' => $messages, 'category' => $category] );
+		return view('backend.messages.list')->with( ['messages' => $messages, 'category' => $category] );
 	}
 
 	public function getHidden()
@@ -30,7 +30,7 @@ class MessagesController extends Controller
 
 		if( $messages != null )
 		{
-			return view('backend.messageslist_hidden')->with('messages', $messages );
+			return view('backend.messages.list_hidden')->with('messages', $messages );
 		}
 	}
 

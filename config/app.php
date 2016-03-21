@@ -197,7 +197,7 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 
-		'CloudStorage' => 'App\Facades\CloudStorage',
+		'ImageStorage' => 'App\Facades\ImageStorage',
 		'Breadcrumbs' => 'DaveJamesMiller\Breadcrumbs\Facade'
 
 	],
